@@ -3,6 +3,7 @@ import React, { FC, ReactNode } from "react";
 interface MainLayoutProps {
   leftPanel: ReactNode;
   mainPanel: ReactNode;
+  rightPanelHeader: ReactNode;
   rightPanel: ReactNode;
 }
 
@@ -10,20 +11,19 @@ export const MainLayout: FC<MainLayoutProps> = ({
   leftPanel,
   mainPanel,
   rightPanel,
+  rightPanelHeader,
 }) => {
   return (
-    <div className="grid grid-cols-12 px-2 max-w-[1200px] mx-auto ">
+    <div className="grid grid-cols-12 px-3 max-w-[1280px] mx-auto gap-4">
       <aside className="col-span-3">
         <div className="sticky top-0">{leftPanel}</div>
       </aside>
-      <main className="col-span-6 border-x border-x-secondary min-h-screen">
+      <main className="col-span-5 border-x border-x-secondary min-h-screen">
         {mainPanel}
       </main>
-      <aside className="col-span-3">
-        {/* <div className="fixed overflow-y-scroll bottom-0 top-0 w-full">
-          {rightPanel}
-        </div> */}
-        <div className="sticky bottom-10">{rightPanel}</div>
+      <aside className="col-span-4">
+        <div className="px-4">{rightPanelHeader}</div>
+        <div className="sticky top-20 px-4">{rightPanel}</div>
       </aside>
     </div>
   );
