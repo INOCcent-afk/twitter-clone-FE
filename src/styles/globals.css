@@ -1,3 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-size: 16px;
+
+  --color-white: #fff;
+  --color-black: #000;
+  --color-primary: #1c9bef;
+  --color-secondary: #202327;
+}
+
 html,
 body {
   padding: 0;
@@ -6,8 +19,16 @@ body {
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
+body {
+  overscroll-behavior-y: none;
+}
+
 a {
   color: inherit;
+  text-decoration: none;
+}
+
+a:hover {
   text-decoration: none;
 }
 
