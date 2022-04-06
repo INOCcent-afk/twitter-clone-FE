@@ -18,12 +18,12 @@ export const MainLayout: FC<MainLayoutProps> = ({
       <aside className="col-span-3">
         <div className="sticky top-0">{leftPanel}</div>
       </aside>
-      <main className="col-span-5 border-x border-x-secondary min-h-screen">
+      <main className="col-span-6 border-x border-x-secondary min-h-screen">
         {mainPanel}
       </main>
-      <aside className="col-span-4">
-        <div className="px-4">{rightPanelHeader}</div>
-        <div className="sticky top-20 px-4">{rightPanel}</div>
+      <aside className="col-span-3">
+        {rightPanelHeader}
+        <div className="sticky top-20 pb-10">{rightPanel}</div>
       </aside>
     </div>
   );

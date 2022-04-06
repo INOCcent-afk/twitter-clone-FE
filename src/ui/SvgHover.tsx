@@ -1,10 +1,19 @@
 import React, { FC, ReactNode } from "react";
 import { ToolTip } from "./ToolTip";
 
+const colorClassNames = {
+  primary: "hover:bg-primary-900",
+  secondary: "hover:bg-secondary",
+  black: "hover:bg-black",
+  white: "hover:bg-white",
+  green: "hover:bg-green-900",
+  red: "hover:bg-red-900",
+};
+
 interface SvgHoverProps {
   name: string;
   children: ReactNode;
-  hoverColor: "primary" | "secondary" | "black" | "white";
+  hoverColor: keyof typeof colorClassNames;
   tooltip?: boolean;
   toolTipPosition?: number; // add conditional typings
 }
@@ -16,11 +25,9 @@ export const SvgHover: FC<SvgHoverProps> = ({
   tooltip = false,
   toolTipPosition,
 }) => {
-  const hc = `hover:bg-${hoverColor}`;
-
   return (
     <div
-      className={`${hc} p-2 rounded-full flex items-center justify-center w-fit ease-in-out duration-300 relative`}
+      className={`${colorClassNames[hoverColor]} p-2 rounded-full flex items-center justify-center w-fit ease-in-out duration-300 relative`}
     >
       <span className="sr-only">{name}</span>
       {children}

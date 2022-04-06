@@ -7,9 +7,21 @@
 
   --color-white: #fff;
   --color-black: #000;
+
   --color-primary: #1c9bef;
+  --color-primary-900: #0a171f;
+
   --color-secondary: #202327;
+
+  --color-green: #019966;
+  --color-green-900: #071a14;
+
+  --color-red: #c21465;
+  --color-red-900: #200914;
+
   --color-text-gray: #eee;
+  --color-text-gray-secondary: #64686d;
+  --color-accent-gray: #191b1f;
 }
 
 html,
@@ -53,7 +65,7 @@ svg {
   line-height: 0;
 }
 
-.bs {
+.modal-boxShadow {
   box-shadow: rgb(255 255 255 / 20%) 0px 0px 15px,
     rgb(255 255 255 / 15%) 0px 0px 3px 1px;
 }
