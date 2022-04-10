@@ -82,9 +82,9 @@ export const SidebarNavigation = () => {
   return (
     <aside>
       <nav>
-        <ul className="ml-[-15px]">
+        <ul className="ml-[-5px]">
           {mainPages.map((link) => (
-            <li className="text-2xl my-5 leading-0" key={link.name}>
+            <li className="text-2xl my-2 leading-0" key={link.name}>
               <Link href={link.path}>
                 <a className="">
                   <span className="flex items-center justify-center gap-5 hover:bg-secondary w-fit px-4 py-2 rounded-3xl ease-out duration-100">
@@ -127,7 +127,7 @@ const MoreNavModal = React.forwardRef<HTMLDivElement, MoreNavModalProps>(
         <div
           aria-modal={true}
           ref={ref}
-          className="absolute text-base bg-black rounded-md overflow-hidden top-0 modal-boxShadow z-50"
+          className="absolute text-base bg-black rounded-md overflow-hidden bottom-0 left-7 modal-boxShadow z-50"
           onKeyDown={closeModal}
         >
           {secondaryPages.map((link) => (

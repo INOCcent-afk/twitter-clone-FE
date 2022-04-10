@@ -1,9 +1,6 @@
-import { useClickOutsideHook } from "@/hooks/useClickOutsideHook";
-import { useScrollLock } from "@/hooks/useScrollLock";
 import { PageMeta } from "@/shared-components/PageMeta";
 import { Button } from "@/ui/ Button";
 import { Input } from "@/ui/Input";
-// import { Modal } from "@/ui/Modal";
 import Modal from "react-modal";
 import { TwitterOutlined } from "@ant-design/icons";
 
@@ -14,7 +11,6 @@ import { useRouter } from "next/router";
 Modal.setAppElement("#__next");
 
 export const LoginPage = () => {
-  const { lockScroll, unlockScroll } = useScrollLock();
   const router = useRouter();
 
   const [formData, setFormData] = useState({
@@ -37,8 +33,6 @@ export const LoginPage = () => {
     }
   };
 
-  console.log(!!router.query.flow);
-
   return (
     <>
       <PageMeta />
@@ -53,16 +47,16 @@ export const LoginPage = () => {
           <TwitterOutlined />
           <h1>Happening now</h1>
           <h2>Join Twitter today.</h2>
-          <Button>
-            <Link href="/?flow=loginPage" as="/flow/loginPage">
-              <a>Go to Login</a>
-            </Link>
-          </Button>
+          <Link href="/?flow=loginPage" as="/flow/loginPage">
+            <Button role="link">Login</Button>
+          </Link>
         </aside>
       </div>
       <Modal
         isOpen={!!router.query.flow}
         onRequestClose={() => router.push("/")}
+        contentLabel="login modal"
+        className="w-full max-w-[400px] bg-black absolute left-1/2 top-1/2 translate-x-[-50%] translate-y-[-50%] text-white rounded-md"
       >
         <form className="p-5">
           <h2>Create your account</h2>

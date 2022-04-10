@@ -26,7 +26,7 @@ export const Input: FC<InputProps> = ({
     `}
       >
         <input
-          className="peer bg-black text-gray placeholder:opacity-0 focus:outline-0"
+          className="peer w-full bg-black text-gray placeholder:opacity-0 focus:outline-0"
           onFocus={() => setFocused(true)}
           onBlur={() => setFocused(false)}
           {...props}

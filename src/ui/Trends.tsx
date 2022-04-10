@@ -18,7 +18,9 @@ export const Trends = () => {
                     <a>Politics</a>
                   </Link>
                   <span aria-label="presentation">.</span>
-                  <Link href="/">Trending</Link>
+                  <Link href="/">
+                    <a>Trending</a>
+                  </Link>
                 </span>
                 <span className="text-gray">Pacquiao</span>
                 <span className="text-graySecondary">2,577 Tweets</span>
