@@ -17,10 +17,13 @@
   --color-green-900: #071a14;
 
   --color-red: #c21465;
+  --color-red-100: red;
   --color-red-900: #200914;
 
   --color-text-gray: #eee;
   --color-text-gray-secondary: #64686d;
+  --color-text-gray-secondary-50: rgb(100, 104, 109, 0.5);
+
   --color-accent-gray: #191b1f;
 }
 

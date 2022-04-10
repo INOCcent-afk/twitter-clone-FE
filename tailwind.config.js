@@ -15,10 +15,14 @@ module.exports = {
       red: {
         DEFAULT: "var(--color-red)",
         900: "var(--color-red-900)",
+        100: "var(--color-red-100)",
       },
       secondary: "var(--color-secondary)",
       gray: "var(--color-text-gray)",
-      graySecondary: "var( --color-text-gray-secondary)",
+      graySecondary: {
+        DEFAULT: "var(--color-text-gray-secondary)",
+        500: "var(--color-text-gray-secondary-50)",
+      },
       accentGray: "var(--color-accent-gray)",
     },
   },

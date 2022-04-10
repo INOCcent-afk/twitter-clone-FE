@@ -69,11 +69,11 @@ const displayPages = [
 export const SidebarNavigation = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  let userSettingNode = useClickOutsideHook(() => {
+  const userSettingNode = useClickOutsideHook(() => {
     setIsModalOpen(false);
   });
 
-  let onEsc = (e: any) => {
+  const onEsc = (e: any) => {
     if (e.key === "Escape") {
       setIsModalOpen(false);
     }
