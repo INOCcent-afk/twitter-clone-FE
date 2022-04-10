@@ -1,13 +1,21 @@
 import { useClickOutsideHook } from "@/hooks/useClickOutsideHook";
 import { useScrollLock } from "@/hooks/useScrollLock";
 import { PageMeta } from "@/shared-components/PageMeta";
+import { Button } from "@/ui/ Button";
 import { Input } from "@/ui/Input";
-import { Modal } from "@/ui/Modal";
+// import { Modal } from "@/ui/Modal";
+import Modal from "react-modal";
 import { TwitterOutlined } from "@ant-design/icons";
+
+import Link from "next/link";
 import React, { SyntheticEvent, useState } from "react";
+import { useRouter } from "next/router";
+
+Modal.setAppElement("#__next");
 
 export const LoginPage = () => {
   const { lockScroll, unlockScroll } = useScrollLock();
+  const router = useRouter();
 
   const [formData, setFormData] = useState({
     name: "",
@@ -29,6 +37,8 @@ export const LoginPage = () => {
     }
   };
 
+  console.log(!!router.query.flow);
+
   return (
     <>
       <PageMeta />
@@ -39,39 +49,45 @@ export const LoginPage = () => {
         >
           <TwitterOutlined className="relative left-1/2 top-1/2 translate-x-[-50%] translate-y-[-50%] text-[400px]" />
         </div>
-        <aside className="col-span-5">
+        <aside className="col-span-5 pl-5 flex flex-col justify-center items-start">
           <TwitterOutlined />
-          <h1 onClick={() => setModal(true)}>Happening now</h1>
+          <h1>Happening now</h1>
           <h2>Join Twitter today.</h2>
+          <Button>
+            <Link href="/?flow=loginPage" as="/flow/loginPage">
+              <a>Go to Login</a>
+            </Link>
+          </Button>
         </aside>
       </div>
-      {isModalOpen && (
-        <Modal onKeyDown={onEsc} closeModal={() => setModal(false)}>
-          <form className="p-5">
-            <h2>Create your account</h2>
-            <Input
-              value={formData.name}
-              onChange={(e) => handleForm(e)}
-              maxLength={50}
-              required
-              placeholder="Name"
-              id="name"
-              name="name"
-              countString
-              type="text"
-            />
-            <Input
-              value={formData.tel}
-              onChange={(e) => handleForm(e)}
-              required
-              placeholder="Phone"
-              id="phone"
-              type="tel"
-              name="tel"
-            />
-          </form>
-        </Modal>
-      )}
+      <Modal
+        isOpen={!!router.query.flow}
+        onRequestClose={() => router.push("/")}
+      >
+        <form className="p-5">
+          <h2>Create your account</h2>
+          <Input
+            value={formData.name}
+            onChange={(e) => handleForm(e)}
+            maxLength={50}
+            required
+            placeholder="Name"
+            id="name"
+            name="name"
+            countString
+            type="text"
+          />
+          <Input
+            value={formData.tel}
+            onChange={(e) => handleForm(e)}
+            required
+            placeholder="Phone"
+            id="phone"
+            type="tel"
+            name="tel"
+          />
+        </form>
+      </Modal>
     </>
   );
 };
