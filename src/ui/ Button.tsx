@@ -3,18 +3,20 @@ import React, {
   ButtonHTMLAttributes,
   DetailedHTMLProps,
   FC,
+  forwardRef,
   ReactNode,
+  Ref,
 } from "react";
 
 const sizeClassnames = {
-  big: "py-4 px-24 text-base rounded-3xl font-bold hover:bg-secondary",
-  small: "px-8 py-2 text-sm font-bold rounded-3xl hover:bg-secondary",
-  tiny: "px-6 py-2 text-base rounded-3xl hover:bg-secondary",
+  big: "py-4 px-24 text-base rounded-3xl font-bold",
+  small: "px-8 py-2 text-sm font-bold rounded-3xl",
+  tiny: "px-6 py-2 text-base rounded-3xl",
 };
 
 const colorClassnames = {
-  primary: "bg-primary text-white",
-  transparent: "bg-black text-white",
+  primary: "bg-primary text-white hover:opacity-80",
+  transparent: "bg-black text-white hover:bg-secondary",
 };
 
 type ButtonProps = DetailedHTMLProps<
@@ -28,40 +30,46 @@ type ButtonProps = DetailedHTMLProps<
   transition?: boolean;
 };
 
-export const Button: FC<ButtonProps> = ({
-  children,
-  size = "big",
-  color = "primary",
-  disabled,
-  loading,
-  icon,
-  className = "",
-  transition = true,
-  ...props
-}) => {
-  return (
-    <button
-      disabled={disabled || loading}
-      className={`w-fit relative ${colorClassnames[color]} ${
-        sizeClassnames[size]
-      } 
+export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
+  (
+    {
+      children,
+      size = "big",
+      color = "primary",
+      disabled,
+      loading,
+      icon,
+      className = "",
+      transition = true,
+      ...props
+    },
+    ref
+  ) => {
+    return (
+      <button
+        ref={ref}
+        disabled={disabled || loading}
+        className={`w-fit relative ${colorClassnames[color]} ${
+          sizeClassnames[size]
+        } 
       rounded-3xl ${transition ? `ease-out duration-200` : ``} 
       ${disabled ? `opacity-80 pointer-events-none` : ``}`}
-      {...props}
-    >
-      <span
-        className={`flex items-center justify-center gap-5 ${
-          loading ? `opacity-0` : ``
-        }`}
+        {...props}
       >
-        {icon}
-        <span>{children}</span>
-      </span>
-      {loading ? (
-        <span className="absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%]">
-          <LoadingOutlined />
+        <span
+          className={`flex items-center justify-center gap-5 ${
+            loading ? `opacity-0` : ``
+          }`}
+        >
+          {icon}
+          <span>{children}</span>
         </span>
-      ) : null}
-    </button>
-  );
-};
+        {loading ? (
+          <span className="absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%]">
+            <LoadingOutlined />
+          </span>
+        ) : null}
+      </button>
+    );
+  }
+);

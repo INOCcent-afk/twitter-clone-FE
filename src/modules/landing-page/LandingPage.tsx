@@ -17,9 +17,9 @@ export const LandingPage = () => {
           <TwitterOutlined className="relative left-1/2 top-1/2 translate-x-[-50%] translate-y-[-50%] text-[400px]" />
         </div>
         <aside className="col-span-5 pl-5 flex flex-col justify-center items-start">
-          <div className="">
+          <div className="mb-10">
             <TwitterOutlined className="text-5xl mb-10" />
-            <h1 className="text-5xl font-bold mb-5">Happening now</h1>
+            <h1 className="text-5xl font-bold mb-10">Happening now</h1>
             <h2 className="text-2xl">Join Twitter today.</h2>
             <div className="flex flex-col max-w-[300px] my-5 gap-3">
               <Link href="/?flow=signup" as="/flow/signup">

@@ -1,17 +1,24 @@
 import { Input } from "@/ui/Input";
-import React, { FC, useContext } from "react";
+import React, { FC, SyntheticEvent, useContext } from "react";
 import { FormContext } from "../formContext";
 
 export const StepOne: FC = () => {
-  const { user } = useContext(FormContext);
+  const { signUpData, setSignUpData } = useContext(FormContext);
 
-  console.log(user);
+  const handleForm = (e: SyntheticEvent<HTMLInputElement>): void => {
+    console.log(e.currentTarget.name);
+
+    setSignUpData({
+      ...signUpData,
+      [e.currentTarget.name]: e.currentTarget.value,
+    });
+  };
+
   return (
     <>
       <h2>Create your account</h2>
-
-      {/* <Input
-        value={e}
+      <Input
+        value={signUpData.name}
         onChange={(e) => handleForm(e)}
         maxLength={50}
         required
@@ -22,14 +29,14 @@ export const StepOne: FC = () => {
         type="text"
       />
       <Input
-        value={formData.tel}
+        value={signUpData.tel}
         onChange={(e) => handleForm(e)}
         required
         placeholder="Phone"
         id="phone"
         type="tel"
         name="tel"
-      /> */}
+      />
     </>
   );
 };

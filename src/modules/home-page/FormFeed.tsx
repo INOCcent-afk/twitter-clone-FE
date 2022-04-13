@@ -5,7 +5,7 @@ import {
   GifOutlined,
   SmileOutlined,
 } from "@ant-design/icons";
-import React, { ComponentPropsWithoutRef, FC, useState } from "react";
+import React, { ComponentPropsWithoutRef, FC } from "react";
 import { Button } from "../../ui/ Button";
 import { Avatar } from "../../ui/Avatar";
 import { SvgHover } from "../../ui/SvgHover";

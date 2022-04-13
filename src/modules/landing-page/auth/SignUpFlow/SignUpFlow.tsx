@@ -12,14 +12,15 @@ export const SignUpFlow = () => {
 
   const [signUpData, setSignUpData] = useState({
     name: "",
+    tel: "",
   });
 
+  const [step, setStep] = useState(1);
+
   const value = useMemo(
-    () => ({ signUpData, setSignUpData }),
+    () => ({ step, signUpData, setSignUpData, setStep }),
     [signUpData, setSignUpData]
   );
-
-  const [step, setStep] = useState(1);
 
   return (
     <FormContext.Provider value={value}>
@@ -29,7 +30,9 @@ export const SignUpFlow = () => {
         contentLabel="login modal"
         className="w-full max-w-[400px] bg-black absolute left-1/2 top-1/2 translate-x-[-50%] translate-y-[-50%] text-white rounded-md"
       >
-        <form className="p-5">{step === 1 && <StepOne />}</form>
+        <div className="">
+          <form className="m-5">{step === 1 && <StepOne />}</form>
+        </div>
       </Modal>
     </FormContext.Provider>
   );
