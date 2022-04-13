@@ -8,7 +8,7 @@ import React, {
 
 const sizeClassnames = {
   big: "py-4 px-24 text-base rounded-3xl font-bold hover:bg-secondary",
-  small: "px-4 py-2 text-2xl rounded-3xl hover:bg-secondary",
+  small: "px-8 py-2 text-sm font-bold rounded-3xl hover:bg-secondary",
   tiny: "px-6 py-2 text-base rounded-3xl hover:bg-secondary",
 };
 
@@ -36,7 +36,7 @@ export const Button: FC<ButtonProps> = ({
   loading,
   icon,
   className = "",
-  transition,
+  transition = true,
   ...props
 }) => {
   return (

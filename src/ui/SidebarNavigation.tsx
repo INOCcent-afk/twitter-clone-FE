@@ -110,7 +110,7 @@ export const SidebarNavigation = () => {
         </ul>
       </nav>
       <div className="mt-8 flex justify-center">
-        <Button transition>Tweet</Button>
+        <Button>Tweet</Button>
       </div>
     </aside>
   );
