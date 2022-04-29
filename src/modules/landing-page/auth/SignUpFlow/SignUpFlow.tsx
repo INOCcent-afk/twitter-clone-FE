@@ -1,29 +1,19 @@
-import { Input } from "@/ui/Input";
 import Modal from "react-modal";
-import React, { SyntheticEvent, useMemo, useState } from "react";
+import React, { useContext } from "react";
 import { useRouter } from "next/router";
-import { StepOne } from "./stepOne";
-import { FormContext } from "../formContext";
+import { StepOne } from "./StepOne";
+import { FormContext, FormContextProvider } from "../formContext";
 
 Modal.setAppElement("#__next");
 
 export const SignUpFlow = () => {
   const router = useRouter();
+  const formContext = useContext(FormContext);
 
-  const [signUpData, setSignUpData] = useState({
-    name: "",
-    tel: "",
-  });
-
-  const [step, setStep] = useState(1);
-
-  const value = useMemo(
-    () => ({ step, signUpData, setSignUpData, setStep }),
-    [signUpData, setSignUpData]
-  );
+  console.log(formContext.step);
 
   return (
-    <FormContext.Provider value={value}>
+    <FormContextProvider>
       <Modal
         isOpen={!!router.query.flow}
         onRequestClose={() => router.push("/")}
@@ -31,9 +21,9 @@ export const SignUpFlow = () => {
         className="w-full max-w-[400px] bg-black absolute left-1/2 top-1/2 translate-x-[-50%] translate-y-[-50%] text-white rounded-md"
       >
         <div className="">
-          <form className="m-5">{step === 1 && <StepOne />}</form>
+          <form className="m-5">{formContext.step === 1 && <StepOne />}</form>
         </div>
       </Modal>
-    </FormContext.Provider>
+    </FormContextProvider>
   );
 };
