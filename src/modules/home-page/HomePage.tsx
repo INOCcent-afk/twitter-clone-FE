@@ -5,7 +5,7 @@ import { SidebarNavigation } from "../../ui/SidebarNavigation";
 import { TwitterHeader } from "../../ui/headers/TwitterHeader";
 import { HomePageHeader } from "./home-page-header";
 import { Header } from "../../ui/headers/components/Header";
-import Search from "../../ui/Search";
+import { Search } from "../../ui/Search";
 import FormFeed from "./FormFeed";
 import { Tweet } from "../../ui/Tweet";
 import { Trends } from "../../ui/Trends";
