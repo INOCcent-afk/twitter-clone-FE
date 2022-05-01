@@ -16,6 +16,7 @@ module.exports = {
     "^@styles(.*)$": "<rootDir>/styles$1",
     "^@ui(.*)$": "<rootDir>/ui$1",
     "^@utils(.*)$": "<rootDir>/utils$1",
+    "^@models(.*)$": "<rootDir>/models$1",
   },
   coverageDirectory: "coverage",
   collectCoverageFrom: ["src/**/*.{js,jsx,ts,tsx}"],

@@ -8,7 +8,8 @@
       "@/shared-components/*": ["shared-components/*"],
       "@/styles/*": ["styles/*"],
       "@/ui/*": ["ui/*"],
-      "@/utils/*": ["utils/*"]
+      "@/utils/*": ["utils/*"],
+      "@/models/*": ["models/*"]
     },
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],

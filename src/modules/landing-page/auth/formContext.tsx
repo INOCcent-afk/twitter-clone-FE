@@ -1,3 +1,4 @@
+import { Months } from "@/models/IDatePicker";
 import {
   createContext,
   Dispatch,
@@ -9,6 +10,9 @@ import {
 export interface Form {
   name: string;
   tel: string;
+  month: Months;
+  day: string;
+  year: string;
 }
 
 interface FormContextProps {
@@ -38,6 +42,9 @@ export const FormContextProvider = ({ children }: FormContextProps) => {
   const [signUpData, setSignUpData] = useState<Form>({
     name: "",
     tel: "",
+    month: "january",
+    day: "1",
+    year: "1900",
   });
 
   const [step, setStep] = useState(1);
