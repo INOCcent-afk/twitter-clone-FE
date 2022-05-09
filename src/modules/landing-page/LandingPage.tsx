@@ -3,11 +3,12 @@ import { Button } from "@/ui/ Button";
 import { TwitterOutlined } from "@ant-design/icons";
 import Link from "next/link";
 import React from "react";
+import { FormContextProvider } from "./auth/formContext";
 import { SignUpFlow } from "./auth/SignUpFlow/SignUpFlow";
 
 export const LandingPage = () => {
   return (
-    <>
+    <FormContextProvider>
       <PageMeta />
       <div className="grid grid-cols-12 h-screen w-full">
         <div
@@ -23,7 +24,7 @@ export const LandingPage = () => {
             <h2 className="text-2xl">Join Twitter today.</h2>
             <div className="flex flex-col max-w-[300px] my-5 gap-3">
               <Link href="/?flow=signup" as="/flow/signup">
-                <Button size="small" role="link">
+                <Button fit size="small" role="link">
                   Sign up with phone or email
                 </Button>
               </Link>
@@ -39,7 +40,7 @@ export const LandingPage = () => {
           <div>
             <h4 className="font-bold mb-3">Already have an account?</h4>
             <Link href="/?flow=login" as="/flow/login">
-              <Button size="small" role="link">
+              <Button fit size="small" role="link">
                 Sign in
               </Button>
             </Link>
@@ -47,6 +48,6 @@ export const LandingPage = () => {
         </aside>
       </div>
       <SignUpFlow />
-    </>
+    </FormContextProvider>
   );
 };

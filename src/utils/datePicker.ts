@@ -15,7 +15,7 @@ export const months = [
   "december",
 ];
 
-export const getNumberOfDayBaseOnMonth = (month: Months): number => {
+export const getNumberOfDayBaseOnMonth = (month: Months | string): number => {
   let endDay;
 
   switch (month) {
@@ -50,7 +50,7 @@ export const getNumberOfDayBaseOnMonth = (month: Months): number => {
   return endDay;
 };
 
-export const getDays = (month: Months): number[] => {
+export const getDays = (month: Months | string): number[] => {
   let days = [];
   let endDay = getNumberOfDayBaseOnMonth(month);
 

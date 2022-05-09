@@ -28,6 +28,7 @@ type ButtonProps = DetailedHTMLProps<
   loading?: boolean;
   icon?: ReactNode;
   transition?: boolean;
+  fit?: boolean;
 };
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
@@ -36,6 +37,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       children,
       size = "big",
       color = "primary",
+      fit = false,
       disabled,
       loading,
       icon,
@@ -49,11 +51,10 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       <button
         ref={ref}
         disabled={disabled || loading}
-        className={`w-fit relative ${colorClassnames[color]} ${
-          sizeClassnames[size]
-        } 
+        className={`${fit ? "w-fit" : "w-full"} relative 
+        ${colorClassnames[color]} ${sizeClassnames[size]} 
       rounded-3xl ${transition ? `ease-out duration-200` : ``} 
-      ${disabled ? `opacity-80 pointer-events-none` : ``}`}
+      ${disabled ? `opacity-80 cursor-no-drop` : ``}`}
         {...props}
       >
         <span

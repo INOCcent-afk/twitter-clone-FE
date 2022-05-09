@@ -1,3 +1,4 @@
+import { Button } from "@/ui/ Button";
 import { Input } from "@/ui/Input";
 import { Select } from "@/ui/Select";
 import { getDays, getYears, months } from "@/utils/datePicker";
@@ -13,7 +14,7 @@ import React, {
 import { FormContext } from "../formContext";
 
 export const StepOne: FC = () => {
-  const { signUpData, setSignUpData } = useContext(FormContext);
+  const { signUpData, setSignUpData, setStep } = useContext(FormContext);
   const [days, setDays] = useState(getDays(signUpData.month));
 
   const handleForm = (
@@ -30,6 +31,17 @@ export const StepOne: FC = () => {
   useEffect(() => {
     setDays(getDays(signUpData.month));
   }, [signUpData.month]);
+
+  const formIsFilled =
+    signUpData.name &&
+    signUpData.tel &&
+    signUpData.day &&
+    signUpData.month &&
+    signUpData.year;
+
+  useEffect(() => {
+    setSignUpData(signUpData);
+  }, [setStep]);
 
   return (
     <>
@@ -70,27 +82,49 @@ export const StepOne: FC = () => {
             account is for a business. a pet. or something else.
           </p>
           <div className="flex justify-between gap-2 my-3">
-            <Select name="month" onChange={(e) => handleForm(e)}>
+            <Select
+              value={signUpData.month}
+              name="month"
+              onChange={(e) => handleForm(e)}
+            >
+              <option value="" hidden>
+                Month
+              </option>
               {months.map((month) => (
                 <option key={month} value={month}>
                   {month}
                 </option>
               ))}
             </Select>
-            <Select name="day" onChange={handleForm}>
+            <Select value={signUpData.day} name="day" onChange={handleForm}>
+              <option value="" hidden>
+                Day
+              </option>
               {days.map((day) => (
                 <option key={day} value={day}>
                   {day}
                 </option>
               ))}
             </Select>
-            <Select name="year" onChange={handleForm}>
+            <Select value={signUpData.year} name="year" onChange={handleForm}>
+              <option value="" hidden>
+                Year
+              </option>
               {years.map((year) => (
                 <option key={year} value={year}>
                   {year}
                 </option>
               ))}
             </Select>
+          </div>
+          <div className="mt-16">
+            <Button
+              type="button"
+              onClick={() => setStep(2)}
+              disabled={!formIsFilled}
+            >
+              Next
+            </Button>
           </div>
         </div>
       </div>

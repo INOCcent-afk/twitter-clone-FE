@@ -10,7 +10,7 @@ import {
 export interface Form {
   name: string;
   tel: string;
-  month: Months;
+  month: Months | "";
   day: string;
   year: string;
 }
@@ -31,6 +31,9 @@ const defaultValue = {
   signUpData: {
     name: "",
     tel: "",
+    month: "",
+    day: "",
+    year: "",
   },
 };
 
@@ -42,12 +45,12 @@ export const FormContextProvider = ({ children }: FormContextProps) => {
   const [signUpData, setSignUpData] = useState<Form>({
     name: "",
     tel: "",
-    month: "january",
-    day: "1",
-    year: "1900",
+    month: "",
+    day: "",
+    year: "",
   });
 
-  const [step, setStep] = useState(1);
+  const [step, setStep] = useState<number>(1);
 
   return (
     <FormContext.Provider value={{ step, signUpData, setSignUpData, setStep }}>

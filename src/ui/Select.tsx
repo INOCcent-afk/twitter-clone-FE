@@ -1,3 +1,4 @@
+import { dummyImageURl } from "@/utils/constants";
 import React, { ComponentPropsWithoutRef, FC } from "react";
 
 export const Select: FC<ComponentPropsWithoutRef<"select">> = ({
@@ -6,9 +7,9 @@ export const Select: FC<ComponentPropsWithoutRef<"select">> = ({
 }) => {
   return (
     <select
-      name="Month"
       className="
                 form-select 
+                cursor-pointer
                 appearance-none
                 block
                 w-full
@@ -22,6 +23,11 @@ export const Select: FC<ComponentPropsWithoutRef<"select">> = ({
                 m-0
                 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
       {...props}
+      style={{
+        backgroundImage: `url("data:image/svg+xml;utf8,<svg fill='black' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>")`,
+        backgroundPositionX: "100%",
+        backgroundPositionY: 5,
+      }}
     >
       {children}
     </select>

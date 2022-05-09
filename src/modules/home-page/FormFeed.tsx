@@ -65,7 +65,7 @@ const FormFeed: FC<FormFeedProps> = ({ ...props }) => {
               ))}
             </div>
             <div className="">
-              <Button size="tiny" disabled={!props.value}>
+              <Button fit size="tiny" disabled={!props.value}>
                 Tweet
               </Button>
             </div>
