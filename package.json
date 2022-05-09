@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "test": "jest src",
-    "test:w": "yarn run test -- --watch"
+    "test:w": "npm run test -- --watch"
   },
   "dependencies": {
     "@ant-design/icons": "^4.7.0",
@@ -39,7 +39,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "yarn run test:w"
+      "pre-commit": "npm run test:w"
     }
   }
 }
