@@ -31,7 +31,7 @@ describe("Date Picker", () => {
     test("february should have a 29 days", () => {
       let day = getDays("february");
 
-      expect(day).toHaveLength(30);
+      expect(day).toHaveLength(29);
     });
 
     test("november should have a 30 days", () => {
