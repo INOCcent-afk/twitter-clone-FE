@@ -120,11 +120,11 @@ interface MoreNavModalProps {
   closeModal: (e: any) => void;
 }
 
-const MoreNavModal = React.forwardRef<HTMLDivElement, MoreNavModalProps>(
+const MoreNavModal = React.forwardRef<HTMLUListElement, MoreNavModalProps>(
   ({ closeModal }, ref) => {
     return (
       <FocusTrap>
-        <div
+        <ul
           aria-modal={true}
           ref={ref}
           className="absolute text-base bg-black rounded-md overflow-hidden bottom-0 left-7 modal-boxShadow z-50"
@@ -157,7 +157,7 @@ const MoreNavModal = React.forwardRef<HTMLDivElement, MoreNavModalProps>(
               </Link>
             </li>
           ))}
-        </div>
+        </ul>
       </FocusTrap>
     );
   }

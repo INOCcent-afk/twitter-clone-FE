@@ -1,8 +1,10 @@
 import { MoreOutlined } from "@ant-design/icons";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import React from "react";
 
 export const Trends = () => {
+  const router = useRouter();
   return (
     <aside className="bg-secondary rounded-lg  py-3 ">
       <header className="px-3 pb-2">
@@ -13,240 +15,35 @@ export const Trends = () => {
           <a>
             <div className="flex justify-between px-3 py-2 hover:bg-accentGray">
               <div className="flex flex-col text-sm">
-                <span className="text-graySecondary">
+                <span className="flex text-graySecondary">
                   <Link href="/">
-                    <a>Politics</a>
+                    <button
+                      onClick={() => router.push("/")}
+                      className="hover:text-primary"
+                      role="link"
+                    >
+                      Politics
+                    </button>
                   </Link>
                   <span aria-label="presentation">.</span>
                   <Link href="/">
-                    <a>Trending</a>
+                    <button
+                      onClick={() => router.push("/")}
+                      className="hover:text-primary"
+                      role="link"
+                    >
+                      Trending
+                    </button>
                   </Link>
                 </span>
                 <span className="text-gray">Pacquiao</span>
                 <span className="text-graySecondary">2,577 Tweets</span>
               </div>
               <div className="">
-                <MoreOutlined />
-              </div>
-            </div>
-          </a>
-        </Link>
-        <Link href="/">
-          <a>
-            <div className="flex justify-between px-3 py-2 hover:bg-accentGray">
-              <div className="flex flex-col text-sm">
-                <span className="text-graySecondary">
-                  <Link href="/">
-                    <a>Politics</a>
-                  </Link>
-                  <span aria-label="presentation">.</span>
-                  <Link href="/">Trending</Link>
-                </span>
-                <span className="text-gray">Pacquiao</span>
-                <span className="text-graySecondary">2,577 Tweets</span>
-              </div>
-              <div className="">
-                <MoreOutlined />
-              </div>
-            </div>
-          </a>
-        </Link>
-        <Link href="/">
-          <a>
-            <div className="flex justify-between px-3 py-2 hover:bg-accentGray">
-              <div className="flex flex-col text-sm">
-                <span className="text-graySecondary">
-                  <Link href="/">
-                    <a>Politics</a>
-                  </Link>
-                  <span aria-label="presentation">.</span>
-                  <Link href="/">Trending</Link>
-                </span>
-                <span className="text-gray">Pacquiao</span>
-                <span className="text-graySecondary">2,577 Tweets</span>
-              </div>
-              <div className="">
-                <MoreOutlined />
-              </div>
-            </div>
-          </a>
-        </Link>
-        <Link href="/">
-          <a>
-            <div className="flex justify-between px-3 py-2 hover:bg-accentGray">
-              <div className="flex flex-col text-sm">
-                <span className="text-graySecondary">
-                  <Link href="/">
-                    <a>Politics</a>
-                  </Link>
-                  <span aria-label="presentation">.</span>
-                  <Link href="/">Trending</Link>
-                </span>
-                <span className="text-gray">Pacquiao</span>
-                <span className="text-graySecondary">2,577 Tweets</span>
-              </div>
-              <div className="">
-                <MoreOutlined />
-              </div>
-            </div>
-          </a>
-        </Link>
-        <Link href="/">
-          <a>
-            <div className="flex justify-between px-3 py-2 hover:bg-accentGray">
-              <div className="flex flex-col text-sm">
-                <span className="text-graySecondary">
-                  <Link href="/">
-                    <a>Politics</a>
-                  </Link>
-                  <span aria-label="presentation">.</span>
-                  <Link href="/">Trending</Link>
-                </span>
-                <span className="text-gray">Pacquiao</span>
-                <span className="text-graySecondary">2,577 Tweets</span>
-              </div>
-              <div className="">
-                <MoreOutlined />
-              </div>
-            </div>
-          </a>
-        </Link>
-        <Link href="/">
-          <a>
-            <div className="flex justify-between px-3 py-2 hover:bg-accentGray">
-              <div className="flex flex-col text-sm">
-                <span className="text-graySecondary">
-                  <Link href="/">
-                    <a>Politics</a>
-                  </Link>
-                  <span aria-label="presentation">.</span>
-                  <Link href="/">Trending</Link>
-                </span>
-                <span className="text-gray">Pacquiao</span>
-                <span className="text-graySecondary">2,577 Tweets</span>
-              </div>
-              <div className="">
-                <MoreOutlined />
-              </div>
-            </div>
-          </a>
-        </Link>
-        <Link href="/">
-          <a>
-            <div className="flex justify-between px-3 py-2 hover:bg-accentGray">
-              <div className="flex flex-col text-sm">
-                <span className="text-graySecondary">
-                  <Link href="/">
-                    <a>Politics</a>
-                  </Link>
-                  <span aria-label="presentation">.</span>
-                  <Link href="/">Trending</Link>
-                </span>
-                <span className="text-gray">Pacquiao</span>
-                <span className="text-graySecondary">2,577 Tweets</span>
-              </div>
-              <div className="">
-                <MoreOutlined />
-              </div>
-            </div>
-          </a>
-        </Link>
-        <Link href="/">
-          <a>
-            <div className="flex justify-between px-3 py-2 hover:bg-accentGray">
-              <div className="flex flex-col text-sm">
-                <span className="text-graySecondary">
-                  <Link href="/">
-                    <a>Politics</a>
-                  </Link>
-                  <span aria-label="presentation">.</span>
-                  <Link href="/">Trending</Link>
-                </span>
-                <span className="text-gray">Pacquiao</span>
-                <span className="text-graySecondary">2,577 Tweets</span>
-              </div>
-              <div className="">
-                <MoreOutlined />
-              </div>
-            </div>
-          </a>
-        </Link>
-        <Link href="/">
-          <a>
-            <div className="flex justify-between px-3 py-2 hover:bg-accentGray">
-              <div className="flex flex-col text-sm">
-                <span className="text-graySecondary">
-                  <Link href="/">
-                    <a>Politics</a>
-                  </Link>
-                  <span aria-label="presentation">.</span>
-                  <Link href="/">Trending</Link>
-                </span>
-                <span className="text-gray">Pacquiao</span>
-                <span className="text-graySecondary">2,577 Tweets</span>
-              </div>
-              <div className="">
-                <MoreOutlined />
-              </div>
-            </div>
-          </a>
-        </Link>
-        <Link href="/">
-          <a>
-            <div className="flex justify-between px-3 py-2 hover:bg-accentGray">
-              <div className="flex flex-col text-sm">
-                <span className="text-graySecondary">
-                  <Link href="/">
-                    <a>Politics</a>
-                  </Link>
-                  <span aria-label="presentation">.</span>
-                  <Link href="/">Trending</Link>
-                </span>
-                <span className="text-gray">Pacquiao</span>
-                <span className="text-graySecondary">2,577 Tweets</span>
-              </div>
-              <div className="">
-                <MoreOutlined />
-              </div>
-            </div>
-          </a>
-        </Link>
-        <Link href="/">
-          <a>
-            <div className="flex justify-between px-3 py-2 hover:bg-accentGray">
-              <div className="flex flex-col text-sm">
-                <span className="text-graySecondary">
-                  <Link href="/">
-                    <a>Politics</a>
-                  </Link>
-                  <span aria-label="presentation">.</span>
-                  <Link href="/">Trending</Link>
-                </span>
-                <span className="text-gray">Pacquiao</span>
-                <span className="text-graySecondary">2,577 Tweets</span>
-              </div>
-              <div className="">
-                <MoreOutlined />
-              </div>
-            </div>
-          </a>
-        </Link>
-        <Link href="/">
-          <a>
-            <div className="flex justify-between px-3 py-2 hover:bg-accentGray">
-              <div className="flex flex-col text-sm">
-                <span className="text-graySecondary">
-                  <Link href="/">
-                    <a>Politics</a>
-                  </Link>
-                  <span aria-label="presentation">.</span>
-                  <Link href="/">Trending</Link>
-                </span>
-                <span className="text-gray">Pacquiao</span>
-                <span className="text-graySecondary">2,577 Tweets</span>
-              </div>
-              <div className="">
-                <MoreOutlined />
+                <button>
+                  <span className="sr-only">Show more</span>
+                  <MoreOutlined />
+                </button>
               </div>
             </div>
           </a>

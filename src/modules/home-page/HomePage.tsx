@@ -44,13 +44,15 @@ export const HomePage: NextPage = () => {
         </>
       }
       rightPanelHeader={
-        <Header>
-          <Search
-            value={search}
-            onChange={(e) => setSearch(e.currentTarget.value)}
-            clearAction={clearSearch}
-          />
-        </Header>
+        <>
+          <Header>
+            <Search
+              value={search}
+              onChange={(e) => setSearch(e.currentTarget.value)}
+              clearAction={clearSearch}
+            />
+          </Header>
+        </>
       }
       rightPanel={
         <>

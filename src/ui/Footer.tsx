@@ -7,27 +7,27 @@ export const Footer: FC = () => {
       <nav>
         <ul className="flex gap-y-0 gap-2 flex-wrap">
           <li>
-            <Link href="">
+            <Link href="/">
               <a className="text-xs leading-[0px]">Terms of Service</a>
             </Link>
           </li>
           <li>
-            <Link href="">
+            <Link href="/">
               <a className="text-xs leading-[0px]">Privacy Policy</a>
             </Link>
           </li>
           <li>
-            <Link href="">
+            <Link href="/">
               <a className="text-xs leading-[0px]">Cookie Policy</a>
             </Link>
           </li>
           <li>
-            <Link href="">
+            <Link href="/">
               <a className="text-xs leading-[0px]">Accesibility</a>
             </Link>
           </li>
           <li>
-            <Link href="">
+            <Link href="/">
               <a className="text-xs leading-[0px]">Ads info</a>
             </Link>
           </li>

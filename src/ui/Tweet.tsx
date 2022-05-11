@@ -6,19 +6,27 @@ import {
   ShareAltOutlined,
 } from "@ant-design/icons";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import React, { FC } from "react";
 import { dummyImageURl } from "../utils/constants";
 import { Avatar } from "./Avatar";
 import { SvgHover } from "./SvgHover";
 
 export const Tweet: FC = React.memo(() => {
+  const router = useRouter();
+
   const closeClicked = (e: any) => {
     e.stopPropagation();
     e.preventDefault();
   };
   return (
     <Link href="/">
-      <a>
+      <div
+        tabIndex={0}
+        role="link"
+        aria-label="tweet"
+        onClick={() => router.push("/")}
+      >
         <article className="flex gap-3 px-3 pt-3 pb-1 border-b border-b-secondary">
           <Avatar image={dummyImageURl} initial="D" />
           <div className="w-full">
@@ -99,7 +107,7 @@ export const Tweet: FC = React.memo(() => {
             </div>
           </div>
         </article>
-      </a>
+      </div>
     </Link>
   );
 });
