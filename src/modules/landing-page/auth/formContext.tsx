@@ -9,6 +9,7 @@ import {
 
 export interface Form {
   name: string;
+  email: string;
   tel: string;
   month: Months | "";
   day: string;
@@ -30,6 +31,7 @@ const defaultValue = {
   step: 1,
   signUpData: {
     name: "",
+    email: "",
     tel: "",
     month: "",
     day: "",
@@ -44,6 +46,7 @@ export const FormContext = createContext<IFormContext>(
 export const FormContextProvider = ({ children }: FormContextProps) => {
   const [signUpData, setSignUpData] = useState<Form>({
     name: "",
+    email: "",
     tel: "",
     month: "",
     day: "",

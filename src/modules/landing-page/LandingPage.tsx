@@ -2,11 +2,15 @@ import { PageMeta } from "@/shared-components/PageMeta";
 import { Button } from "@/ui/ Button";
 import { TwitterOutlined } from "@ant-design/icons";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import React from "react";
 import { FormContextProvider } from "./auth/formContext";
+import { LoginFlow } from "./auth/LoginFlow/LoginFlow";
 import { SignUpFlow } from "./auth/SignUpFlow/SignUpFlow";
 
 export const LandingPage = () => {
+  const router = useRouter();
+
   return (
     <FormContextProvider>
       <PageMeta />
@@ -20,7 +24,7 @@ export const LandingPage = () => {
         <aside className="col-span-5 pl-5 flex flex-col justify-center items-start">
           <div className="mb-10">
             <TwitterOutlined className="text-5xl mb-10" />
-            <h1 className="text-5xl font-bold mb-10">Happening now</h1>
+            <h1 className="text-5xl mb-10">Happening now</h1>
             <h2 className="text-2xl">Join Twitter today.</h2>
             <div className="flex flex-col max-w-[300px] my-5 gap-3">
               <Link href="/?flow=signup" as="/flow/signup">
@@ -38,7 +42,7 @@ export const LandingPage = () => {
             </div>
           </div>
           <div>
-            <h4 className="font-bold mb-3">Already have an account?</h4>
+            <h4 className="mb-3">Already have an account?</h4>
             <Link href="/?flow=login" as="/flow/login">
               <Button fit size="small" role="link">
                 Sign in
@@ -47,7 +51,14 @@ export const LandingPage = () => {
           </div>
         </aside>
       </div>
-      <SignUpFlow />
+      <SignUpFlow
+        onRequestClose={() => router.push("/")}
+        isOpen={router.query.flow === "signup" ? true : false}
+      />
+      <LoginFlow
+        onRequestClose={() => router.push("/")}
+        isOpen={router.query.flow === "login" ? true : false}
+      />
     </FormContextProvider>
   );
 };

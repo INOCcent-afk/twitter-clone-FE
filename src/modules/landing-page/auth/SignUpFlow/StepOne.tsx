@@ -76,7 +76,7 @@ export const StepOne: FC = () => {
           name="tel"
         />
         <div className="">
-          <h4 className="font-bold">Date of birth</h4>
+          <h4 className="">Date of birth</h4>
           <p className="text-xs text-graySecondary">
             This will not be shown publicly, Confirm your own age, even if this
             account is for a business. a pet. or something else.
@@ -86,6 +86,7 @@ export const StepOne: FC = () => {
               value={signUpData.month}
               name="month"
               onChange={(e) => handleForm(e)}
+              required
             >
               <option value="" hidden>
                 Month
@@ -96,7 +97,12 @@ export const StepOne: FC = () => {
                 </option>
               ))}
             </Select>
-            <Select value={signUpData.day} name="day" onChange={handleForm}>
+            <Select
+              value={signUpData.day}
+              name="day"
+              onChange={handleForm}
+              required
+            >
               <option value="" hidden>
                 Day
               </option>
@@ -106,7 +112,12 @@ export const StepOne: FC = () => {
                 </option>
               ))}
             </Select>
-            <Select value={signUpData.year} name="year" onChange={handleForm}>
+            <Select
+              value={signUpData.year}
+              name="year"
+              onChange={handleForm}
+              required
+            >
               <option value="" hidden>
                 Year
               </option>

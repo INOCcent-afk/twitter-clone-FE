@@ -2,10 +2,8 @@ import { LoadingOutlined } from "@ant-design/icons";
 import React, {
   ButtonHTMLAttributes,
   DetailedHTMLProps,
-  FC,
   forwardRef,
   ReactNode,
-  Ref,
 } from "react";
 
 const sizeClassnames = {
@@ -17,6 +15,9 @@ const sizeClassnames = {
 const colorClassnames = {
   primary: "bg-primary text-white hover:opacity-80",
   transparent: "bg-black text-white hover:bg-secondary",
+  white: "bg-white text-black hover:bg-primary hover:text-white",
+  blackOutline:
+    "bg-black text-white border border-graySecondary hover:border-primary hover:bg-primary hover:text-white",
 };
 
 type ButtonProps = DetailedHTMLProps<
