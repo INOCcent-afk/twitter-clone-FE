@@ -6,7 +6,7 @@ export const LoginPage = () => {
   return (
     <FormContextProvider>
       <div className="bg-gray w-full h-screen">
-        <LoginFlow onRequestClose={null} isOpen={true} />
+        <LoginFlow isOpen={true} />
       </div>
     </FormContextProvider>
   );

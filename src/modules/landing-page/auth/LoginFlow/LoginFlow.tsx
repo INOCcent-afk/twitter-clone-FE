@@ -11,7 +11,7 @@ Modal.setAppElement("#__next");
 
 interface LoginFlow {
   isOpen: boolean;
-  onRequestClose: () => void;
+  onRequestClose?: () => void;
 }
 
 export const LoginFlow: FC<LoginFlow> = ({ isOpen, onRequestClose }) => {
