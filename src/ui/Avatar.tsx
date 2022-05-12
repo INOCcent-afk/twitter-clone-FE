@@ -8,7 +8,7 @@ interface AvatarProps {
   size?: number;
 }
 
-export const Avatar: FC<AvatarProps> = ({ image, initial, size }) => {
+export const Avatar: FC<AvatarProps> = ({ image, initial }) => {
   return (
     <Link href="/">
       <a>

@@ -8,7 +8,9 @@
     "start": "next start",
     "lint": "next lint",
     "test": "jest src",
-    "test:w": "npm run test -- --watch"
+    "test:w": "npm run test -- --watch",
+    "prepare": "husky install",
+    "pre-commit": "yarn lint"
   },
   "dependencies": {
     "@ant-design/icons": "^4.7.0",
@@ -27,6 +29,7 @@
     "@types/react": "17.0.43",
     "@types/react-dom": "17.0.14",
     "@types/react-modal": "^3.13.1",
+    "@typescript-eslint/eslint-plugin": "^5.23.0",
     "autoprefixer": "^10.4.4",
     "babel-jest": "^28.0.3",
     "eslint": "8.12.0",

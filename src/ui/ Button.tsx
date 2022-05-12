@@ -42,7 +42,6 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       disabled,
       loading,
       icon,
-      className = "",
       transition = true,
       ...props
     },
