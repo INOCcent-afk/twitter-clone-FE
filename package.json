@@ -10,7 +10,7 @@
     "test": "jest src",
     "test:w": "npm run test -- --watch",
     "prepare": "husky install",
-    "pre-commit": "yarn lint"
+    "pre-commit": "yarn lint && yarn test"
   },
   "dependencies": {
     "@ant-design/icons": "^4.7.0",
