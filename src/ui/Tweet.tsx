@@ -27,7 +27,7 @@ export const Tweet: FC = React.memo(() => {
         aria-label="tweet"
         onClick={() => router.push("/")}
       >
-        <article className="flex gap-3 px-3 pt-3 pb-1 border-b border-b-secondary">
+        <article className="flex gap-3 px-3 pt-3 pb-1 bg-black border-b border-b-secondary">
           <Avatar image={dummyImageURl} initial="D" />
           <div className="w-full">
             <div className="flex">
