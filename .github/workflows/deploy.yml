@@ -22,12 +22,12 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: "npm"
-      - run: npm ci
-      - run: npm run build
-      - run: npm run export
-      - run: npm lint
+      - run: yarn ci
+      - run: yarn run build
+      - run: yarn run export
+      - run: yarn lint
       - run:
-          npm test
+          yarn test
 
           # deploy app to vercel
       - name: deploy site to vercel
