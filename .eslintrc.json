@@ -10,6 +10,7 @@
     "react/display-name": "off",
     "prefer-const": "off",
     "@typescript-eslint/no-empty-interface": "warn",
-    "react/no-unescaped-entities": "off"
+    "react/no-unescaped-entities": "off",
+    "import/no-anonymous-default-export": "off"
   }
 }
