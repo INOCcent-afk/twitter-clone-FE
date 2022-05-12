@@ -45,7 +45,7 @@ const FormFeed: FC<FormFeedProps> = ({ ...props }) => {
         </div>
         <form className="w-full ">
           <textarea
-            className="w-full bg-black text-xl resize-none focus:outline-dashed outline-primary outline-2"
+            className="w-full bg-black text-xl focus:border-none focus:outline-none resize-none"
             placeholder="What's happening?"
             {...props}
           ></textarea>
