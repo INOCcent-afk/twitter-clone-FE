@@ -7,7 +7,7 @@ import {
 } from "@ant-design/icons";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import React, { FC } from "react";
+import React, { FC, SyntheticEvent } from "react";
 import { dummyImageURl } from "../utils/constants";
 import { Avatar } from "./Avatar";
 import { SvgHover } from "./SvgHover";
@@ -15,12 +15,12 @@ import { SvgHover } from "./SvgHover";
 export const Tweet: FC = React.memo(() => {
   const router = useRouter();
 
-  const closeClicked = (e: any) => {
+  const closeClicked = (e: SyntheticEvent) => {
     e.stopPropagation();
     e.preventDefault();
   };
   return (
-    <Link href="/">
+    <Link href="/" passHref>
       <div
         tabIndex={0}
         role="link"

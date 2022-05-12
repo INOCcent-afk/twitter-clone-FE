@@ -4,11 +4,17 @@ import { CloseOutlined, TwitterOutlined } from "@ant-design/icons";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { SyntheticEvent, useState } from "react";
+import { FC } from "react";
 import Modal from "react-modal";
 
 Modal.setAppElement("#__next");
 
-export const LoginFlow = ({ isOpen, onRequestClose }: any) => {
+interface LoginFlow {
+  isOpen: boolean;
+  onRequestClose: () => void;
+}
+
+export const LoginFlow: FC<LoginFlow> = ({ isOpen, onRequestClose }) => {
   const router = useRouter();
   const [loginData, setLoginData] = useState({
     email: "",

@@ -41,7 +41,7 @@ export const StepOne: FC = () => {
 
   useEffect(() => {
     setSignUpData(signUpData);
-  }, [setStep]);
+  }, [signUpData, setSignUpData, setStep]);
 
   return (
     <>

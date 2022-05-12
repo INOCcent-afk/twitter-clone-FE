@@ -27,7 +27,7 @@ export const LandingPage = () => {
             <h1 className="text-5xl mb-10">Happening now</h1>
             <h2 className="text-2xl">Join Twitter today.</h2>
             <div className="flex flex-col max-w-[300px] my-5 gap-3">
-              <Link href="/?flow=signup" as="/flow/signup">
+              <Link href="/?flow=signup" as="/flow/signup" passHref>
                 <Button fit size="small" role="link">
                   Sign up with phone or email
                 </Button>
@@ -43,7 +43,7 @@ export const LandingPage = () => {
           </div>
           <div>
             <h4 className="mb-3">Already have an account?</h4>
-            <Link href="/?flow=login" as="/flow/login">
+            <Link href="/?flow=login" as="/flow/login" passHref>
               <Button fit size="small" role="link">
                 Sign in
               </Button>

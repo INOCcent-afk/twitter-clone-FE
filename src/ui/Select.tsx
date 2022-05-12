@@ -1,4 +1,3 @@
-import { dummyImageURl } from "@/utils/constants";
 import React, { ComponentPropsWithoutRef, FC } from "react";
 
 export const Select: FC<ComponentPropsWithoutRef<"select">> = ({

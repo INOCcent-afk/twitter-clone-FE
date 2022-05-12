@@ -16,7 +16,7 @@ export const Trends = () => {
             <div className="flex justify-between px-3 py-2 hover:bg-accentGray">
               <div className="flex flex-col text-sm">
                 <span className="flex text-graySecondary">
-                  <Link href="/">
+                  <Link href="/" passHref>
                     <button
                       onClick={() => router.push("/")}
                       className="hover:text-primary"
@@ -26,7 +26,7 @@ export const Trends = () => {
                     </button>
                   </Link>
                   <span aria-label="presentation">.</span>
-                  <Link href="/">
+                  <Link href="/" passHref>
                     <button
                       onClick={() => router.push("/")}
                       className="hover:text-primary"

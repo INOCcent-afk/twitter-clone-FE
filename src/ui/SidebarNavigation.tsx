@@ -73,7 +73,7 @@ export const SidebarNavigation = () => {
     setIsModalOpen(false);
   });
 
-  const onEsc = (e: any) => {
+  const onEsc = (e: KeyboardEvent) => {
     if (e.key === "Escape") {
       setIsModalOpen(false);
     }
@@ -117,47 +117,48 @@ export const SidebarNavigation = () => {
 };
 
 interface MoreNavModalProps {
-  closeModal: (e: any) => void;
+  closeModal: (e: KeyboardEvent) => void;
 }
 
 const MoreNavModal = React.forwardRef<HTMLUListElement, MoreNavModalProps>(
   ({ closeModal }, ref) => {
     return (
       <FocusTrap>
-        <ul
-          aria-modal={true}
-          ref={ref}
-          className="absolute text-base bg-black rounded-md overflow-hidden bottom-0 left-7 modal-boxShadow z-50"
-          onKeyDown={closeModal}
-        >
-          {secondaryPages.map((link) => (
-            <li
-              className="py-3 px-3 hover:bg-secondary ease-out duration-100"
-              key={link.name}
-            >
-              <Link href={link.path}>
-                <a className="flex items-center gap-5">
-                  {link.icon}
-                  <span>{link.name}</span>
-                </a>
-              </Link>
-            </li>
-          ))}
-          <hr />
-          {displayPages.map((link) => (
-            <li
-              className="flex items-center gap-5 py-3 px-3 hover:bg-secondary ease-out duration-100"
-              key={link.name}
-            >
-              <Link href={link.path}>
-                <a className="flex items-center gap-5">
-                  {link.icon}
-                  <span>{link.name}</span>
-                </a>
-              </Link>
-            </li>
-          ))}
-        </ul>
+        <div aria-modal={true}>
+          <ul
+            ref={ref}
+            className="absolute text-base bg-black rounded-md overflow-hidden bottom-0 left-7 modal-boxShadow z-50"
+            onKeyDown={(e: any) => closeModal(e)}
+          >
+            {secondaryPages.map((link) => (
+              <li
+                className="py-3 px-3 hover:bg-secondary ease-out duration-100"
+                key={link.name}
+              >
+                <Link href={link.path}>
+                  <a className="flex items-center gap-5">
+                    {link.icon}
+                    <span>{link.name}</span>
+                  </a>
+                </Link>
+              </li>
+            ))}
+            <hr />
+            {displayPages.map((link) => (
+              <li
+                className="flex items-center gap-5 py-3 px-3 hover:bg-secondary ease-out duration-100"
+                key={link.name}
+              >
+                <Link href={link.path}>
+                  <a className="flex items-center gap-5">
+                    {link.icon}
+                    <span>{link.name}</span>
+                  </a>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
       </FocusTrap>
     );
   }
