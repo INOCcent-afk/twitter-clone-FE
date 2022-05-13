@@ -13,7 +13,6 @@ jobs:
     strategy:
       matrix:
         node-version: [16.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
       - uses: actions/checkout@v3
@@ -24,16 +23,16 @@ jobs:
           cache: "npm"
       - uses: borales/actions-yarn@v2.3.0
         with:
-          cmd: install # will run `yarn install` command
+          cmd: install
       - uses: borales/actions-yarn@v2.3.0
         with:
-          cmd: build # will run `yarn build` command
+          cmd: build
       - uses: borales/actions-yarn@v2.3.0
         with:
-          cmd: lint # will run `yarn lint` command
+          cmd: lint
       - uses: borales/actions-yarn@v2.3.0
         with:
-          cmd: test # will run `yarn test` command
+          cmd: test
 
           # deploy app to vercel
       - name: deploy site to vercel
