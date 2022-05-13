@@ -6,50 +6,51 @@ import {
   ShareAltOutlined,
 } from "@ant-design/icons";
 import Link from "next/link";
-import { useRouter } from "next/router";
 import React, { FC, SyntheticEvent } from "react";
 import { dummyImageURl } from "../utils/constants";
 import { Avatar } from "./Avatar";
 import { SvgHover } from "./SvgHover";
 
 export const Tweet: FC = React.memo(() => {
-  const router = useRouter();
-
   const closeClicked = (e: SyntheticEvent) => {
     e.stopPropagation();
     e.preventDefault();
   };
   return (
     <Link href="/" passHref>
-      <div
-        tabIndex={0}
-        role="link"
-        aria-label="tweet"
-        onClick={() => router.push("/")}
-      >
+      <a>
         <article className="flex gap-3 px-3 pt-3 pb-1 bg-black border-b border-b-secondary">
           <Avatar image={dummyImageURl} initial="D" />
           <div className="w-full">
             <div className="flex">
               <div className="flex items-center justify-between w-full">
                 <div className="flex items-center gap-1 text-graySecondary">
-                  <Link href="/">
-                    <a className="text-gray hover:!underline hover:underline-offset-1">
+                  <Link href="/" passHref>
+                    <button
+                      role="link"
+                      className="text-gray hover:!underline hover:underline-offset-1"
+                    >
                       GoLimitless
-                    </a>
+                    </button>
                   </Link>
-                  <Link href="/">
-                    <a className="hover:!underline hover:underline-offset-1">
+                  <Link href="/" passHref>
+                    <button
+                      role="link"
+                      className="hover:!underline hover:underline-offset-1"
+                    >
                       @GoLimitless
-                    </a>
+                    </button>
                   </Link>
                   <span role="presentation" className="mb-1">
                     .
                   </span>
-                  <Link href="/">
-                    <a className="hover:!underline hover:underline-offset-1">
+                  <Link href="/" passHref>
+                    <button
+                      role="link"
+                      className="hover:!underline hover:underline-offset-1"
+                    >
                       20h
-                    </a>
+                    </button>
                   </Link>
                 </div>
                 <button
@@ -107,7 +108,7 @@ export const Tweet: FC = React.memo(() => {
             </div>
           </div>
         </article>
-      </div>
+      </a>
     </Link>
   );
 });

@@ -10,8 +10,8 @@ interface AvatarProps {
 
 export const Avatar: FC<AvatarProps> = ({ image, initial }) => {
   return (
-    <Link href="/">
-      <a>
+    <Link href="/" passHref>
+      <button role="link">
         <div className="rounded-full w-14 h-14 relative overflow-hidden bg-primary hover:opacity-90">
           {image && (
             <Image className="z-20" src={image} layout="fill" alt="avatar" />
@@ -20,7 +20,7 @@ export const Avatar: FC<AvatarProps> = ({ image, initial }) => {
             {initial}
           </span>
         </div>
-      </a>
+      </button>
     </Link>
   );
 };

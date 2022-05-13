@@ -7,15 +7,16 @@ export const StepTwo = () => {
   const { setStep } = useContext(FormContext);
   return (
     <>
-      <div
+      <button
         onClick={() => {
           setStep(1);
         }}
         className="flex gap-2 items-center text-white cursor-pointer absolute top-3 left-3"
+        type="button"
       >
         <SwapLeftOutlined className="text-3xl leading-[0px]" />
         <span className="font-bold">Step 2 of 3</span>
-      </div>
+      </button>
       <div className="mt-16">
         <h1 className="mb-8 text-2xl">Customize your experience</h1>
         <h4 className="mb-2">

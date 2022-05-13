@@ -25,44 +25,64 @@ import { Button } from "./ Button";
 import FocusTrap from "focus-trap-react";
 
 const mainPages = [
-  { path: "/", name: "Home", icon: <HomeOutlined /> },
-  { path: "/explore", name: "Explore", icon: <NumberOutlined /> },
-  { path: "/notifications", name: "Notifications", icon: <BellOutlined /> },
-  { path: "/messages", name: "Messages", icon: <MailOutlined /> },
-  { path: "/bookmarks", name: "Bookmarks", icon: <TagOutlined /> },
-  { path: "/lists", name: "Lists", icon: <AlignLeftOutlined /> },
-  { path: "/profile", name: "Profile", icon: <UserOutlined /> },
+  { path: "/", name: "Home", icon: <HomeOutlined aria-hidden /> },
+  { path: "/explore", name: "Explore", icon: <NumberOutlined aria-hidden /> },
+  {
+    path: "/notifications",
+    name: "Notifications",
+    icon: <BellOutlined aria-hidden />,
+  },
+  { path: "/messages", name: "Messages", icon: <MailOutlined aria-hidden /> },
+  { path: "/bookmarks", name: "Bookmarks", icon: <TagOutlined aria-hidden /> },
+  { path: "/lists", name: "Lists", icon: <AlignLeftOutlined aria-hidden /> },
+  { path: "/profile", name: "Profile", icon: <UserOutlined aria-hidden /> },
 ];
 
 const secondaryPages = [
-  { path: "/topics", name: "Topics", icon: <CommentOutlined /> },
-  { path: "/moments", name: "Moments", icon: <ThunderboltOutlined /> },
-  { path: "/newsletters", name: "Newsletters", icon: <FileDoneOutlined /> },
+  { path: "/topics", name: "Topics", icon: <CommentOutlined aria-hidden /> },
+  {
+    path: "/moments",
+    name: "Moments",
+    icon: <ThunderboltOutlined aria-hidden />,
+  },
+  {
+    path: "/newsletters",
+    name: "Newsletters",
+    icon: <FileDoneOutlined aria-hidden />,
+  },
   {
     path: "/twitter-for-professionals",
     name: "Twitter for Professionals",
-    icon: <RocketOutlined />,
+    icon: <RocketOutlined aria-hidden />,
   },
-  { path: "/twitter-ads", name: "Twitter Ads", icon: <SwapOutlined /> },
-  { path: "/analytics", name: "Analytics", icon: <BarChartOutlined /> },
+  {
+    path: "/twitter-ads",
+    name: "Twitter Ads",
+    icon: <SwapOutlined aria-hidden />,
+  },
+  {
+    path: "/analytics",
+    name: "Analytics",
+    icon: <BarChartOutlined aria-hidden />,
+  },
 ];
 
 const displayPages = [
   {
     path: "/settings-and-privacy",
     name: "Settings and privacy",
-    icon: <SettingOutlined />,
+    icon: <SettingOutlined aria-hidden />,
   },
   {
     path: "/help-center",
     name: "Help Center",
-    icon: <QuestionCircleOutlined />,
+    icon: <QuestionCircleOutlined aria-hidden />,
   },
-  { path: "/display", name: "Display", icon: <DingtalkOutlined /> },
+  { path: "/display", name: "Display", icon: <DingtalkOutlined aria-hidden /> },
   {
     path: "/keyboard-shortcuts",
     name: "Keyboard shorcuts",
-    icon: <UsbOutlined />,
+    icon: <UsbOutlined aria-hidden />,
   },
 ];
 
@@ -100,7 +120,7 @@ export const SidebarNavigation = () => {
               className="flex items-center gap-5 hover:bg-secondary w-fit px-4 py-2 rounded-3xl ease-out duration-100"
               onClick={() => setIsModalOpen(true)}
             >
-              <MinusCircleOutlined />
+              <MinusCircleOutlined aria-hidden />
               <span className="text-gray">More</span>
             </button>
             {isModalOpen && (

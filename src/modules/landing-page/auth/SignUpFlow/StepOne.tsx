@@ -45,10 +45,11 @@ export const StepOne: FC = () => {
 
   return (
     <>
-      <Link href="/">
-        <a>
-          <CloseOutlined className="text-base text-white absolute left-3 top-3 cursor-pointer" />
-        </a>
+      <Link href="/" passHref>
+        <CloseOutlined
+          role="link"
+          className="text-base text-white absolute left-3 top-3 cursor-pointer"
+        />
       </Link>
       <div className="w-full text-center">
         <TwitterOutlined className="text-base text-white" />

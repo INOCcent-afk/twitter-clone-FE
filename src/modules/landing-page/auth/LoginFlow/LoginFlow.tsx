@@ -39,10 +39,12 @@ export const LoginFlow: FC<LoginFlow> = ({ isOpen, onRequestClose }) => {
     >
       <div className="">
         <form className="m-8 px-8">
-          <Link href="/">
-            <a>
-              <CloseOutlined className="text-base text-white absolute left-3 top-3 cursor-pointer" />
-            </a>
+          <Link href="/" passHref>
+            <CloseOutlined
+              role="link"
+              tabIndex={0}
+              className="text-base text-white absolute left-3 top-3 cursor-pointer"
+            />
           </Link>
           <div className="w-full text-center">
             <TwitterOutlined className="text-base text-white" />
