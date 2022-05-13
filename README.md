@@ -1,4 +1,4 @@
-## Getting Started
+### Getting Started
 
 First, install dependancies
 
@@ -12,7 +12,7 @@ Second, run the development server:
 yarn run dev
 ```
 
-# Other commands:
+## Other commands:
 
 - testing
 
@@ -34,7 +34,7 @@ yarn storybook
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-## Extensions
+### Extensions
 
 Make sure these extenstions are installed for better developer experience
 
@@ -43,13 +43,13 @@ Make sure these extenstions are installed for better developer experience
 - ES7 + React/Redux/React-Native
 - Tailwind CSS IntelliSense
 
-## Code Changes
+### Code Changes
 
 Please create test on every thing you make! follow the formatting and linting.
 
 whenver you create a UI please keep accesibility in mind and add it to story book for better documentation.
 
-## Committing
+### Committing
 
 I'm using husky to prevent bugs in production.
 pre-committing will automatically run linting and test to check for errors.
