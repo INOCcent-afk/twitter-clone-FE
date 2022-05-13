@@ -48,11 +48,12 @@ export const StepOne: FC = () => {
       <Link href="/" passHref>
         <CloseOutlined
           role="link"
+          tabIndex={0}
           className="text-base text-white absolute left-3 top-3 cursor-pointer"
         />
       </Link>
       <div className="w-full text-center">
-        <TwitterOutlined className="text-base text-white" />
+        <TwitterOutlined className="text-base text-white" aria-hidden />
       </div>
       <h2 className="text-2xl my-4">Create your account</h2>
       <div className="flex flex-col gap-5">
