@@ -42,7 +42,7 @@ export const Trends = () => {
               <div className="">
                 <button>
                   <span className="sr-only">Show more</span>
-                  <MoreOutlined />
+                  <MoreOutlined aria-hidden />
                 </button>
               </div>
             </div>

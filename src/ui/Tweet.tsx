@@ -58,7 +58,10 @@ export const Tweet: FC = React.memo(() => {
                   className="group relative text-graySecondary flex items-center"
                 >
                   <SvgHover hoverColor="primary" name="More">
-                    <MoreOutlined className="group-hover:text-primary duration-300 leading-[0px] text-lg" />
+                    <MoreOutlined
+                      className="group-hover:text-primary duration-300 leading-[0px] text-lg"
+                      aria-hidden
+                    />
                   </SvgHover>
                 </button>
               </div>
@@ -69,10 +72,14 @@ export const Tweet: FC = React.memo(() => {
             <div className="flex items-center justify-between my-1 mr-20 ml-[-5px]">
               <button
                 onClick={closeClicked}
+                role="link"
                 className="group relative text-graySecondary flex items-center"
               >
                 <SvgHover hoverColor="primary" name="comments">
-                  <CommentOutlined className="group-hover:text-primary duration-300" />
+                  <CommentOutlined
+                    className="group-hover:text-primary duration-300"
+                    aria-hidden
+                  />
                 </SvgHover>
                 <span className="inline-block text-xs group-hover:text-primary duration-300 ml-2">
                   3
@@ -80,10 +87,14 @@ export const Tweet: FC = React.memo(() => {
               </button>
               <button
                 onClick={closeClicked}
+                role="link"
                 className="group relative text-graySecondary flex items-center"
               >
                 <SvgHover hoverColor="green" name="comments">
-                  <RetweetOutlined className="group-hover:text-green duration-300" />
+                  <RetweetOutlined
+                    className="group-hover:text-green duration-300"
+                    aria-hidden
+                  />
                 </SvgHover>
                 <span className="inline-block text-xs group-hover:text-green duration-300 ml-2">
                   3
@@ -91,18 +102,29 @@ export const Tweet: FC = React.memo(() => {
               </button>
               <button
                 onClick={closeClicked}
+                role="link"
                 className="group relative text-graySecondary flex items-center"
               >
                 <SvgHover hoverColor="red" name="comments">
-                  <HeartOutlined className="group-hover:text-red duration-300" />
+                  <HeartOutlined
+                    className="group-hover:text-red duration-300"
+                    aria-hidden
+                  />
                 </SvgHover>
                 <span className="inline-block text-xs group-hover:text-red duration-300 ml-3">
                   3
                 </span>
               </button>
-              <button onClick={closeClicked} className="relative group">
+              <button
+                role="link"
+                onClick={closeClicked}
+                className="relative group"
+              >
                 <SvgHover hoverColor="primary" name="comments">
-                  <ShareAltOutlined className="text-graySecondary group-hover:text-primary duration-300" />
+                  <ShareAltOutlined
+                    className="text-graySecondary group-hover:text-primary duration-300"
+                    aria-hidden
+                  />
                 </SvgHover>
               </button>
             </div>
