@@ -40,7 +40,7 @@ const FormFeed: FC<FormFeedProps> = ({ ...props }) => {
   return (
     <>
       <section className="flex px-5 gap-4 pb-2 mt-1">
-        <div className="">
+        <div>
           <Avatar image={dummyImageURl} initial="D" />
         </div>
         <form className="w-full ">
@@ -64,7 +64,7 @@ const FormFeed: FC<FormFeedProps> = ({ ...props }) => {
                 </button>
               ))}
             </div>
-            <div className="">
+            <div>
               <Button fit size="tiny" disabled={!props.value}>
                 Tweet
               </Button>
