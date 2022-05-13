@@ -24,7 +24,7 @@ export const Search: FC<SearchProps> = ({ clearAction, ...props }) => {
           data-testid="test-clear-btn"
         >
           <span className="sr-only">clear</span>
-          <CloseCircleFilled className="text-xl leading-[0px]" />
+          <CloseCircleFilled className="text-xl leading-[0px]" aria-hidden />
         </button>
       )}
     </div>

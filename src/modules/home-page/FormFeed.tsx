@@ -16,23 +16,45 @@ interface FormFeedProps extends ComponentPropsWithoutRef<"textarea"> {}
 const Controls = [
   {
     name: "upload images",
-    icon: <FileImageOutlined className="text-primary text-lg leading-[0px]" />,
+    icon: (
+      <FileImageOutlined
+        className="text-primary text-lg leading-[0px]"
+        aria-hidden
+      />
+    ),
   },
   {
     name: "Gif",
-    icon: <GifOutlined className="text-primary text-lg leading-[0px]" />,
+    icon: (
+      <GifOutlined className="text-primary text-lg leading-[0px]" aria-hidden />
+    ),
   },
   {
     name: "Poll",
-    icon: <AlignLeftOutlined className="text-primary text-lg leading-[0px]" />,
+    icon: (
+      <AlignLeftOutlined
+        className="text-primary text-lg leading-[0px]"
+        aria-hidden
+      />
+    ),
   },
   {
     name: "Emoji",
-    icon: <SmileOutlined className="text-primary text-lg leading-[0px]" />,
+    icon: (
+      <SmileOutlined
+        className="text-primary text-lg leading-[0px]"
+        aria-hidden
+      />
+    ),
   },
   {
     name: "Schedule",
-    icon: <CalendarOutlined className="text-primary text-lg leading-[0px]" />,
+    icon: (
+      <CalendarOutlined
+        className="text-primary text-lg leading-[0px]"
+        aria-hidden
+      />
+    ),
   },
 ];
 

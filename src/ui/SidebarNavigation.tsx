@@ -100,7 +100,7 @@ export const SidebarNavigation = () => {
   };
 
   return (
-    <aside>
+    <div>
       <nav>
         <ul className="ml-[-5px]">
           {mainPages.map((link) => (
@@ -119,6 +119,8 @@ export const SidebarNavigation = () => {
             <button
               className="flex items-center gap-5 hover:bg-secondary w-fit px-4 py-2 rounded-3xl ease-out duration-100"
               onClick={() => setIsModalOpen(true)}
+              aria-expanded={isModalOpen}
+              aria-controls="moreNavModal"
             >
               <MinusCircleOutlined aria-hidden />
               <span className="text-gray">More</span>
@@ -132,7 +134,7 @@ export const SidebarNavigation = () => {
       <div className="mt-8 flex justify-center">
         <Button>Tweet</Button>
       </div>
-    </aside>
+    </div>
   );
 };
 
@@ -144,7 +146,7 @@ const MoreNavModal = React.forwardRef<HTMLUListElement, MoreNavModalProps>(
   ({ closeModal }, ref) => {
     return (
       <FocusTrap>
-        <div aria-modal={true}>
+        <div aria-modal={true} id="moreNavModal">
           <ul
             ref={ref}
             className="absolute text-base bg-black rounded-md overflow-hidden bottom-0 left-7 modal-boxShadow z-50"

@@ -16,7 +16,10 @@ export const Avatar: FC<AvatarProps> = ({ image, initial }) => {
           {image && (
             <Image className="z-20" src={image} layout="fill" alt="avatar" />
           )}
-          <span className="absolute left-1/2 top-1/2 translate-x-[-50%] translate-y-[-50%] z-10 text-2xl">
+          <span
+            className="absolute left-1/2 top-1/2 translate-x-[-50%] translate-y-[-50%] z-10 text-2xl"
+            aria-hidden={image ? true : false}
+          >
             {initial}
           </span>
         </div>

@@ -10,7 +10,10 @@ export const HomePageHeader = () => {
         <h2>Latests Tweets</h2>
         <button className="group">
           <SvgHover name="Latest tweets" hoverColor="secondary" tooltip>
-            <ThunderboltOutlined className="text-2xl leading-[0px]" />
+            <ThunderboltOutlined
+              className="text-2xl leading-[0px]"
+              aria-hidden
+            />
           </SvgHover>
         </button>
       </div>
