@@ -6,7 +6,7 @@ const prod = {
 
 export const dev = {
   url: {
-    API_URL: process.env.LOCAL_BASE_API,
+    API_URL: process.env.NEXT_PUBLIC_LOCAL_BASE_API,
   },
 };
 

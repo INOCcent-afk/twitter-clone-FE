@@ -23,7 +23,8 @@
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-modal": "^3.14.4",
-    "react-query": "^3.39.0"
+    "react-query": "^3.39.0",
+    "react-toastify": "^9.0.1"
   },
   "devDependencies": {
     "@babel/core": "^7.17.10",

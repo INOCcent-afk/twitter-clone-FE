@@ -1,3 +1,5 @@
+import { ISignup } from "@/models/auth/Signup";
+import { useAuth } from "@/services/react-query/auth";
 import { Button } from "@/ui/ Button";
 import { Input } from "@/ui/Input";
 import { SwapLeftOutlined } from "@ant-design/icons";
@@ -5,6 +7,7 @@ import React, { FormEvent, SyntheticEvent, useContext } from "react";
 import { Form, FormContext } from "../formContext";
 
 export const StepThree = () => {
+  const { singInMutate } = useAuth();
   const { signUpData, setSignUpData, setStep } = useContext(FormContext);
 
   const handleForm = (
@@ -22,7 +25,7 @@ export const StepThree = () => {
 
     const sanitizedDate = `${month} ${day}, ${year}`;
 
-    const sanitizedSignupData = {
+    const sanitizedSignupData: ISignup = {
       username,
       email,
       password,
@@ -30,7 +33,7 @@ export const StepThree = () => {
       birthday: sanitizedDate,
     };
 
-    console.log(sanitizedSignupData);
+    singInMutate(sanitizedSignupData);
   };
 
   return (
