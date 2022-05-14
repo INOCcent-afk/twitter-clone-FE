@@ -1,3 +1,5 @@
+import { ISignup } from "@/models/auth/Signup";
+import { useAuth } from "@/services/react-query/auth";
 import { Button } from "@/ui/ Button";
 import { Input } from "@/ui/Input";
 import { SwapLeftOutlined } from "@ant-design/icons";
@@ -5,27 +7,40 @@ import React, { FormEvent, SyntheticEvent, useContext } from "react";
 import { Form, FormContext } from "../formContext";
 
 export const StepThree = () => {
+  const { singInMutate } = useAuth();
   const { signUpData, setSignUpData, setStep } = useContext(FormContext);
 
-  const handleEmail = (
+  const handleForm = (
     e: SyntheticEvent<HTMLInputElement | HTMLSelectElement>
   ): void => {
     setSignUpData({
       ...signUpData,
-      email: e.currentTarget.value,
+      [e.currentTarget.name]: e.currentTarget.value,
     });
   };
 
   const signUp = (e: FormEvent, data: Form) => {
+    const { username, email, password, tel, day, month, year } = data;
     e.preventDefault();
-    console.log(data);
+
+    const sanitizedDate = `${month} ${day}, ${year}`;
+
+    const sanitizedSignupData: ISignup = {
+      username,
+      email,
+      password,
+      tel,
+      birthday: sanitizedDate,
+    };
+
+    singInMutate(sanitizedSignupData);
   };
 
   return (
     <>
       <button
         onClick={() => {
-          setStep(3);
+          setStep(2);
         }}
         className="flex gap-2 items-center text-white cursor-pointer absolute top-3 left-3"
         type="button"
@@ -40,7 +55,15 @@ export const StepThree = () => {
           type="email"
           placeholder="Email"
           value={signUpData.email}
-          onChange={handleEmail}
+          onChange={handleForm}
+        />
+        <div className="mt-5"></div>
+        <Input
+          name="password"
+          type="password"
+          placeholder="Password"
+          value={signUpData.password}
+          onChange={handleForm}
         />
       </div>
       <div className="mt-28">

@@ -17,12 +17,14 @@
   },
   "dependencies": {
     "@ant-design/icons": "^4.7.0",
+    "axios": "^0.27.2",
     "focus-trap-react": "^8.9.2",
     "next": "12.1.1",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-modal": "^3.14.4",
-    "react-query": "^3.34.19"
+    "react-query": "^3.39.0",
+    "react-toastify": "^9.0.1"
   },
   "devDependencies": {
     "@babel/core": "^7.17.10",

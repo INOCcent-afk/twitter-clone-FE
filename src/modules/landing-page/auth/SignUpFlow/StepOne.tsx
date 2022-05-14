@@ -33,7 +33,7 @@ export const StepOne: FC = () => {
   }, [signUpData.month]);
 
   const formIsFilled =
-    signUpData.name &&
+    signUpData.username &&
     signUpData.tel &&
     signUpData.day &&
     signUpData.month &&
@@ -58,13 +58,13 @@ export const StepOne: FC = () => {
       <h2 className="text-2xl my-4">Create your account</h2>
       <div className="flex flex-col gap-5">
         <Input
-          value={signUpData.name}
+          value={signUpData.username}
           onChange={handleForm}
           maxLength={50}
           required
-          placeholder="Name"
-          id="name"
-          name="name"
+          placeholder="Username"
+          id="username"
+          name="username"
           countString
           type="text"
         />

@@ -8,9 +8,10 @@ import {
 } from "react";
 
 export interface Form {
-  name: string;
+  username: string;
   email: string;
   tel: string;
+  password: string;
   month: Months | "";
   day: string;
   year: string;
@@ -30,8 +31,9 @@ interface IFormContext {
 const defaultValue = {
   step: 1,
   signUpData: {
-    name: "",
+    username: "",
     email: "",
+    password: "",
     tel: "",
     month: "",
     day: "",
@@ -45,8 +47,9 @@ export const FormContext = createContext<IFormContext>(
 
 export const FormContextProvider = ({ children }: FormContextProps) => {
   const [signUpData, setSignUpData] = useState<Form>({
-    name: "",
+    username: "",
     email: "",
+    password: "",
     tel: "",
     month: "",
     day: "",
