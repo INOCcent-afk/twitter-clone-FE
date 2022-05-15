@@ -21,12 +21,13 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: "npm"
-      - uses: borales/actions-yarn@v2.3.0
+      - name: Cypress run
+        uses: cypress-io/github-action@v2
         with:
-          cmd: install
-      - uses: borales/actions-yarn@v2.3.0
-        with:
-          cmd: build
+          start: yarn dev
+          browser: chrome
+          headless: true
+          wait-on: "http://localhost:3000"
       - uses: borales/actions-yarn@v2.3.0
         with:
           cmd: lint
@@ -35,7 +36,7 @@ jobs:
           cmd: test
       - uses: borales/actions-yarn@v2.3.0
         with:
-          cmd: e2e
+          cmd: build
 
           # deploy app to vercel
       # - name: deploy site to vercel
