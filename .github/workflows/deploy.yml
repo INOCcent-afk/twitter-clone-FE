@@ -29,11 +29,11 @@ jobs:
           cmd: build
       - name: Cypress run
         uses: cypress-io/github-action@v2
-          with:
-            start: yarn start
-            browser: chrome
-            headless: true
-            wait-on: 'http://localhost:3000'
+        with:
+          start: yarn start
+          browser: chrome
+          headless: true
+          wait-on: "http://localhost:3000"
       - uses: borales/actions-yarn@v2.3.0
         with:
           cmd: lint
