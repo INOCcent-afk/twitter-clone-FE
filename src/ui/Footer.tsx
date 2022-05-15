@@ -39,7 +39,6 @@ export const Footer: FC = () => {
       </nav>
       <small className="text-xs">© 2022 Twitter, Inc.</small>
       <small onClick={logout} className="text-primary cursor-pointer">
-        {" "}
         Logout
       </small>
     </footer>

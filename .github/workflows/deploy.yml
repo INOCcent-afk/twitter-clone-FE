@@ -33,6 +33,9 @@ jobs:
       - uses: borales/actions-yarn@v2.3.0
         with:
           cmd: test
+      - uses: borales/actions-yarn@v2.3.0
+        with:
+          cmd: e2e
 
           # deploy app to vercel
       # - name: deploy site to vercel
