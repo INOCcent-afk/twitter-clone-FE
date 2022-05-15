@@ -7,7 +7,7 @@ import React, { FormEvent, SyntheticEvent, useContext } from "react";
 import { Form, FormContext } from "../formContext";
 
 export const StepThree = () => {
-  const { singInMutate } = useAuth();
+  const { singUpMutate } = useAuth();
   const { signUpData, setSignUpData, setStep } = useContext(FormContext);
 
   const handleForm = (
@@ -33,7 +33,7 @@ export const StepThree = () => {
       birthday: sanitizedDate,
     };
 
-    singInMutate(sanitizedSignupData);
+    singUpMutate.mutate(sanitizedSignupData);
   };
 
   return (

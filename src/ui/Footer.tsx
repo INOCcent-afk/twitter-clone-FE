@@ -1,3 +1,4 @@
+import { logout } from "@/services/resources/auth";
 import Link from "next/link";
 import React, { FC } from "react";
 
@@ -37,6 +38,9 @@ export const Footer: FC = () => {
         </ul>
       </nav>
       <small className="text-xs">© 2022 Twitter, Inc.</small>
+      <small onClick={logout} className="text-primary cursor-pointer">
+        Logout
+      </small>
     </footer>
   );
 };

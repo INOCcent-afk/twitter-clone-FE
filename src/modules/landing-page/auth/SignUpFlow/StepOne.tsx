@@ -123,7 +123,7 @@ export const StepOne: FC = () => {
               <option value="" hidden>
                 Year
               </option>
-              {years.map((year) => (
+              {years.reverse().map((year) => (
                 <option key={year} value={year}>
                   {year}
                 </option>
