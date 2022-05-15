@@ -1,5 +1,6 @@
 import { ISignIn } from "@/models/auth/SignIn";
 import { ISignup } from "@/models/auth/Signup";
+import { isServer } from "@/utils/isServer";
 import { useRouter } from "next/router";
 import { useMutation } from "react-query";
 import { toast } from "react-toastify";
@@ -15,6 +16,9 @@ export const useAuth = () => {
     {
       onSuccess: async (data) => {
         // add more typings on react query
+        if (isServer()) {
+          localStorage.setItem("jwt", data.data.jwt);
+        }
         router.push("/home");
         toast.success(`Succesfully created as ${data.data.user.username}`, {
           icon: false,
@@ -37,6 +41,9 @@ export const useAuth = () => {
     {
       onSuccess: async (data) => {
         // add more typings on react query
+        if (isServer()) {
+          localStorage.setItem("jwt", data.data.jwt);
+        }
         router.push("/home");
         toast.success(`Welcome back ${data.data.user.username}`, {
           icon: false,

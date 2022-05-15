@@ -2,6 +2,7 @@ import { ISignup } from "@/models/auth/Signup";
 import { ISignIn } from "@/models/auth/SignIn";
 import axios from "axios";
 import { apiConfig } from "@/services/config";
+import { isServer } from "@/utils/isServer";
 
 export const signUp = async (data: ISignup) => {
   try {
@@ -26,5 +27,11 @@ export const signIn = async (data: ISignIn) => {
     return response;
   } catch (error) {
     throw error;
+  }
+};
+
+export const logout = async () => {
+  if (isServer()) {
+    localStorage.removeItem("jwt");
   }
 };
