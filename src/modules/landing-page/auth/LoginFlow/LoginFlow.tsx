@@ -1,9 +1,11 @@
+import { ISignIn } from "@/models/auth/SignIn";
+import { useAuth } from "@/services/react-query/auth";
 import { Button } from "@/ui/ Button";
 import { Input } from "@/ui/Input";
 import { CloseOutlined, TwitterOutlined } from "@ant-design/icons";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import React, { SyntheticEvent, useState } from "react";
+import React, { FormEvent, SyntheticEvent, useState } from "react";
 import { FC } from "react";
 import Modal from "react-modal";
 
@@ -16,8 +18,9 @@ interface LoginFlow {
 
 export const LoginFlow: FC<LoginFlow> = ({ isOpen, onRequestClose }) => {
   const router = useRouter();
+  const { singInMutate } = useAuth();
   const [loginData, setLoginData] = useState({
-    email: "",
+    identifier: "",
     password: "",
   });
 
@@ -28,6 +31,12 @@ export const LoginFlow: FC<LoginFlow> = ({ isOpen, onRequestClose }) => {
       ...loginData,
       [e.currentTarget.name]: e.currentTarget.value,
     });
+  };
+
+  const handleSubmit = (e: FormEvent, data: ISignIn) => {
+    e.preventDefault();
+
+    singInMutate.mutate(data);
   };
 
   return (
@@ -54,9 +63,9 @@ export const LoginFlow: FC<LoginFlow> = ({ isOpen, onRequestClose }) => {
             <h1 className="text-3xl">Sign in to twitter</h1>
             <Input
               type="email"
-              name="email"
+              name="identifier"
               placeholder="Email"
-              value={loginData.email}
+              value={loginData.identifier}
               onChange={handleForm}
               required
             />
@@ -74,8 +83,8 @@ export const LoginFlow: FC<LoginFlow> = ({ isOpen, onRequestClose }) => {
             <Button
               size="small"
               color="white"
-              onClick={() => console.log(loginData)}
-              type="button"
+              onClick={(e) => handleSubmit(e, loginData)}
+              type="submit"
             >
               Login
             </Button>
