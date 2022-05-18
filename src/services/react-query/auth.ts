@@ -1,5 +1,6 @@
 import { ISignIn } from "@/models/auth/SignIn";
 import { ISignup } from "@/models/auth/Signup";
+import { IRQOnError } from "@/models/react-query/IError";
 import { isServer } from "@/utils/isServer";
 import { useRouter } from "next/router";
 import { useMutation } from "react-query";
@@ -24,8 +25,7 @@ export const useAuth = () => {
           icon: false,
         });
       },
-      onError: async (error: any) => {
-        // add more typings on react query
+      onError: async (error: IRQOnError) => {
         toast.error(error.response.data.error.message, { icon: false });
       },
       onMutate: async () => {
@@ -40,7 +40,6 @@ export const useAuth = () => {
     },
     {
       onSuccess: async (data) => {
-        // add more typings on react query
         if (isServer()) {
           localStorage.setItem("jwt", data.data.jwt);
         }
@@ -49,8 +48,7 @@ export const useAuth = () => {
           icon: false,
         });
       },
-      onError: async (error: any) => {
-        // add more typings on react query
+      onError: async (error: IRQOnError) => {
         toast.error(error.response.data.error.message, { icon: false });
       },
       onMutate: async () => {

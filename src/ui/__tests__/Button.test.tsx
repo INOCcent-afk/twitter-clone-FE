@@ -12,7 +12,7 @@ describe("Button Component", () => {
     // Arrange
 
     //Act
-    const { queryByTestId } = render(<Button>big</Button>);
+    const { queryByTestId } = render(<Button data-testid="button">big</Button>);
 
     //Assert
     expect(queryByTestId("button")).toHaveTextContent("big");
@@ -23,7 +23,11 @@ describe("Button Component", () => {
     // Arrange
 
     //Act
-    const { queryByTestId } = render(<Button size="small">small</Button>);
+    const { queryByTestId } = render(
+      <Button size="small" data-testid="button">
+        small
+      </Button>
+    );
 
     //Assert
     expect(queryByTestId("button")).toHaveTextContent("small");
@@ -34,7 +38,11 @@ describe("Button Component", () => {
     // Arrange
 
     //Act
-    const { queryByTestId } = render(<Button size="tiny">tiny</Button>);
+    const { queryByTestId } = render(
+      <Button size="tiny" data-testid="button">
+        tiny
+      </Button>
+    );
 
     //Assert
     expect(queryByTestId("button")).toHaveTextContent("tiny");
@@ -45,7 +53,11 @@ describe("Button Component", () => {
     // Arrange
 
     //Act
-    const { queryByTestId } = render(<Button disabled>disabled</Button>);
+    const { queryByTestId } = render(
+      <Button disabled data-testid="button">
+        disabled
+      </Button>
+    );
 
     //Assert
     expect(queryByTestId("button")).toHaveTextContent("disabled");
@@ -56,7 +68,11 @@ describe("Button Component", () => {
     // Arrange
 
     //Act
-    const { queryByTestId } = render(<Button loading>loading</Button>);
+    const { queryByTestId } = render(
+      <Button loading data-testid="button">
+        loading
+      </Button>
+    );
 
     //Assert
     expect(queryByTestId("button")).toHaveTextContent("loading");

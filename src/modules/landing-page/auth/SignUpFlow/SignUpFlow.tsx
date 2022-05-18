@@ -1,5 +1,5 @@
 import Modal from "react-modal";
-import React, { useContext } from "react";
+import React, { FC, useContext } from "react";
 import { StepOne } from "./StepOne";
 import { FormContext } from "../formContext";
 import { StepTwo } from "./StepTwo";
@@ -7,7 +7,12 @@ import { StepThree } from "./StepThree";
 
 Modal.setAppElement("#__next");
 
-export const SignUpFlow = ({ isOpen, onRequestClose }: any) => {
+interface ISignUpFlow {
+  isOpen: boolean;
+  onRequestClose: () => void;
+}
+
+export const SignUpFlow: FC<ISignUpFlow> = ({ isOpen, onRequestClose }) => {
   const { step } = useContext(FormContext);
 
   return (

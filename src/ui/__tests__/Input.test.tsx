@@ -13,6 +13,7 @@ describe("Input Component", () => {
         countString
         maxLength={50}
         onChange={onChange}
+        data-testid="input"
       />
     );
 
@@ -32,6 +33,7 @@ describe("Input Component", () => {
         countString
         maxLength={50}
         onChange={onChange}
+        data-testid="input"
       />
     );
 
@@ -55,6 +57,7 @@ describe("Input Component", () => {
         onChange={onChange}
         error
         errorMessage="we got an error"
+        data-testid="input"
       />
     );
 

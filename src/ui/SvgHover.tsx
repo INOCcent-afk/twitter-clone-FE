@@ -28,8 +28,11 @@ export const SvgHover: FC<SvgHoverProps> = ({
   return (
     <div
       className={`${colorClassNames[hoverColor]} p-2 rounded-full flex items-center justify-center w-fit ease-in-out duration-300 relative`}
+      data-testid="svg-hover"
     >
-      <span className="sr-only">{name}</span>
+      <span className="sr-only" data-testid="svg-aria">
+        {name}
+      </span>
       {children}
       {tooltip && <ToolTip position={toolTipPosition}>{name}</ToolTip>}
     </div>

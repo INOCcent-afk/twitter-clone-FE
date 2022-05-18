@@ -56,7 +56,6 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       rounded-3xl ${transition ? `ease-out duration-200` : ``} 
       ${disabled ? `opacity-80 cursor-no-drop` : ``}`}
         {...props}
-        data-testid="button"
       >
         <span
           className={`flex items-center justify-center gap-5 ${

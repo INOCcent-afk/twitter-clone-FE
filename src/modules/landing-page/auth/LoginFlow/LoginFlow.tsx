@@ -9,7 +9,7 @@ import React, { FormEvent, SyntheticEvent, useState } from "react";
 import { FC } from "react";
 import Modal from "react-modal";
 
-Modal.setAppElement("#__next");
+if (process.env.NODE_ENV !== "test") Modal.setAppElement("#__next");
 
 interface LoginFlow {
   isOpen: boolean;
@@ -46,13 +46,14 @@ export const LoginFlow: FC<LoginFlow> = ({ isOpen, onRequestClose }) => {
       contentLabel="signup modal"
       className="w-full max-w-[500px] bg-black absolute left-1/2 top-1/2 translate-x-[-50%] translate-y-[-50%] text-white rounded-md"
     >
-      <div className="">
+      <div className="" data-testid="modal">
         <form className="m-8 px-8">
           <Link href="/" passHref>
             <CloseOutlined
               role="link"
               tabIndex={0}
               className="text-base text-white absolute left-3 top-3 cursor-pointer"
+              data-testid="close-modal"
             />
           </Link>
           <div className="w-full text-center">
@@ -68,6 +69,7 @@ export const LoginFlow: FC<LoginFlow> = ({ isOpen, onRequestClose }) => {
               value={loginData.identifier}
               onChange={handleForm}
               required
+              data-testid="input-email"
             />
             <Input
               type="password"
@@ -76,6 +78,7 @@ export const LoginFlow: FC<LoginFlow> = ({ isOpen, onRequestClose }) => {
               value={loginData.password}
               onChange={handleForm}
               required
+              data-testid="input-password"
             />
           </div>
 
@@ -85,6 +88,7 @@ export const LoginFlow: FC<LoginFlow> = ({ isOpen, onRequestClose }) => {
               color="white"
               onClick={(e) => handleSubmit(e, loginData)}
               type="submit"
+              data-testid="submit-button"
             >
               Login
             </Button>
@@ -96,6 +100,7 @@ export const LoginFlow: FC<LoginFlow> = ({ isOpen, onRequestClose }) => {
               size="small"
               color="blackOutline"
               type="button"
+              data-testid="forgot-password"
             >
               Forgot password?
             </Button>
@@ -104,7 +109,9 @@ export const LoginFlow: FC<LoginFlow> = ({ isOpen, onRequestClose }) => {
           <div className="flex gap-3 text-sm text-graySecondary my-14">
             <span>Don't have an account?</span>
             <Link href="/?flow=signup" as="/flow/signup">
-              <a className="text-primary">Sign up</a>
+              <a className="text-primary" data-testid="signup">
+                Sign up
+              </a>
             </Link>
           </div>
         </form>

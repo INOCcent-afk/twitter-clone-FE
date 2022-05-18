@@ -31,7 +31,6 @@ export const Input: FC<InputProps> = ({
           onFocus={() => setFocused(true)}
           onBlur={() => setFocused(false)}
           {...props}
-          data-testid="input"
         />
         <label
           className={`absolute text-graySecondary top-4 left-3 text-xl
