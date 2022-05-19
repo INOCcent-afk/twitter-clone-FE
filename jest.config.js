@@ -1,3 +1,6 @@
+const { pathsToModuleNameMapper } = require("ts-jest");
+const { compilerOptions } = require("./tsconfig");
+
 module.exports = {
   testEnvironment: "jest-environment-jsdom",
   setupFilesAfterEnv: ["<rootDir>/jest.setup.ts"],
@@ -8,16 +11,9 @@ module.exports = {
     "<rootDir>/dist",
   ],
   moduleDirectories: ["<rootDir>/node_modules", "<rootDir>/src"],
-  moduleNameMapper: {
-    "^@hooks(.*)$": "<rootDir>/hooks$1",
-    "^@modules(.*)$": "<rootDir>/modules$1",
-    "^@pages(.*)$": "<rootDir>/pages$1",
-    "^@shared-components(.*)$": "<rootDir>/shared-components$1",
-    "^@styles(.*)$": "<rootDir>/styles$1",
-    "^@ui(.*)$": "<rootDir>/ui$1",
-    "^@utils(.*)$": "<rootDir>/utils$1",
-    "^@models(.*)$": "<rootDir>/models$1",
-  },
+  moduleNameMapper: pathsToModuleNameMapper(
+    compilerOptions.paths /*, { prefix: '<rootDir>/' } */
+  ),
   coverageDirectory: "coverage",
   collectCoverageFrom: ["src/**/*.{js,jsx,ts,tsx}"],
   coverageThreshold: {

@@ -67,7 +67,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         </span>
         {loading ? (
           <span className="absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%]">
-            <LoadingOutlined />
+            <LoadingOutlined aria-hidden data-testid="loadingIcon" />
           </span>
         ) : null}
       </button>
