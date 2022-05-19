@@ -7,10 +7,10 @@ import { useMutation } from "react-query";
 import { toast } from "react-toastify";
 import { signIn, signUp } from "services/resources/auth";
 
-export const useAuth = () => {
+export const useSignUpMutate = () => {
   const router = useRouter();
 
-  const singUpMutate = useMutation(
+  const { mutate, data, isSuccess, isError } = useMutation(
     async (data: ISignup) => {
       return signUp(data);
     },
@@ -34,7 +34,13 @@ export const useAuth = () => {
     }
   );
 
-  const singInMutate = useMutation(
+  return { mutate, data, isSuccess, isError };
+};
+
+export const useSignInMutate = () => {
+  const router = useRouter();
+
+  const { mutate, data, isSuccess, isError } = useMutation(
     async (data: ISignIn) => {
       return signIn(data);
     },
@@ -57,8 +63,5 @@ export const useAuth = () => {
     }
   );
 
-  return {
-    singUpMutate: singUpMutate,
-    singInMutate: singInMutate,
-  };
+  return { mutate, data, isSuccess, isError };
 };

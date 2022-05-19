@@ -1,5 +1,5 @@
 import { ISignIn } from "@/models/auth/SignIn";
-import { useAuth } from "@/services/react-query/auth";
+import { useSignInMutate } from "@/services/react-query/auth";
 import { Button } from "@/ui/ Button";
 import { Input } from "@/ui/Input";
 import { CloseOutlined, TwitterOutlined } from "@ant-design/icons";
@@ -18,7 +18,7 @@ interface LoginFlow {
 
 export const LoginFlow: FC<LoginFlow> = ({ isOpen, onRequestClose }) => {
   const router = useRouter();
-  const { singInMutate } = useAuth();
+  const { mutate } = useSignInMutate();
   const [loginData, setLoginData] = useState({
     identifier: "",
     password: "",
@@ -36,7 +36,7 @@ export const LoginFlow: FC<LoginFlow> = ({ isOpen, onRequestClose }) => {
   const handleSubmit = (e: FormEvent, data: ISignIn) => {
     e.preventDefault();
 
-    singInMutate.mutate(data);
+    mutate(data);
   };
 
   return (
