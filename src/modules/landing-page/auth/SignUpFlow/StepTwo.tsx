@@ -15,7 +15,9 @@ export const StepTwo = () => {
         type="button"
       >
         <SwapLeftOutlined className="text-3xl leading-[0px]" />
-        <span className="font-bold">Step 2 of 3</span>
+        <span className="font-bold" data-testid="step">
+          Step 2 of 3
+        </span>
       </button>
       <div className="mt-16">
         <h1 className="mb-8 text-2xl">Customize your experience</h1>
@@ -39,7 +41,12 @@ export const StepTwo = () => {
         </p>
       </div>
       <div className="mt-28">
-        <Button onClick={() => setStep(3)} color="primary" type="submit">
+        <Button
+          onClick={() => setStep(3)}
+          color="primary"
+          type="submit"
+          data-testid="next-button"
+        >
           Next
         </Button>
       </div>

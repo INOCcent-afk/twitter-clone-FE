@@ -6,7 +6,7 @@ export const SignUpPage = () => {
   return (
     <FormContextProvider>
       <div className="bg-gray w-full h-screen">
-        <SignUpFlow onRequestClose={null} isOpen={true} />
+        <SignUpFlow onRequestClose={() => {}} isOpen={true} />
       </div>
     </FormContextProvider>
   );
