@@ -135,6 +135,7 @@ export const StepOne: FC = () => {
               type="button"
               onClick={() => setStep(2)}
               disabled={!formIsFilled}
+              data-testid="next-button"
             >
               Next
             </Button>

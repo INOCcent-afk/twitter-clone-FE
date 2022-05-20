@@ -42,7 +42,13 @@ export const LoginFlow: FC<LoginFlow> = ({ isOpen, onRequestClose }) => {
   return (
     <Modal
       isOpen={isOpen}
-      onRequestClose={onRequestClose}
+      onRequestClose={() => {
+        onRequestClose && onRequestClose();
+        setLoginData({
+          identifier: "",
+          password: "",
+        });
+      }}
       contentLabel="signup modal"
       className="w-full max-w-[500px] bg-black absolute left-1/2 top-1/2 translate-x-[-50%] translate-y-[-50%] text-white rounded-md"
     >

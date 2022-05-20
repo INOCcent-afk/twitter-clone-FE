@@ -46,7 +46,9 @@ export const StepThree = () => {
         type="button"
       >
         <SwapLeftOutlined className="text-3xl leading-[0px]" />
-        <span className="font-bold">Step 3 of 3</span>
+        <span className="font-bold" data-testid="step">
+          Step 3 of 3
+        </span>
       </button>
       <div className="mt-16">
         <h1 className="mb-8 text-2xl">Create your account</h1>
@@ -81,6 +83,8 @@ export const StepThree = () => {
             color="primary"
             type="submit"
             onClick={(e) => signUp(e, signUpData)}
+            disabled={signUpData.email && signUpData.password ? false : true}
+            data-testid="submit-button"
           >
             Sign up
           </Button>

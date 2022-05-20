@@ -30,7 +30,12 @@ export const LandingPage = () => {
             <h2 className="text-2xl">Join Twitter today.</h2>
             <div className="flex flex-col max-w-[300px] my-5 gap-3">
               <Link href="/?flow=signup" as="/flow/signup" passHref>
-                <Button fit size="small" role="link">
+                <Button
+                  fit
+                  size="small"
+                  role="link"
+                  data-testid="signup-button"
+                >
                   Sign up with phone or email
                 </Button>
               </Link>
@@ -46,7 +51,7 @@ export const LandingPage = () => {
           <div>
             <h4 className="mb-3">Already have an account?</h4>
             <Link href="/?flow=login" as="/flow/login" passHref>
-              <Button fit size="small" role="link">
+              <Button fit size="small" role="link" data-testid="signin-button">
                 Sign in
               </Button>
             </Link>
@@ -58,7 +63,9 @@ export const LandingPage = () => {
         isOpen={router.query.flow === "signup" ? true : false}
       />
       <LoginFlow
-        onRequestClose={() => router.push("/")}
+        onRequestClose={() => {
+          router.push("/");
+        }}
         isOpen={router.query.flow === "login" ? true : false}
       />
     </FormContextProvider>
