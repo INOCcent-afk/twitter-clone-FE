@@ -20,7 +20,7 @@ export const Tweet: FC = React.memo(() => {
     <Link href="/" passHref>
       <a>
         <article className="flex gap-3 px-3 pt-3 pb-1 bg-black border-b border-b-secondary">
-          <Avatar image={dummyImageURl} initial="D" />
+          <Avatar image={dummyImageURl} username="dave" />
           <div className="w-full">
             <div className="flex">
               <div className="flex items-center justify-between w-full">

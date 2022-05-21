@@ -9,9 +9,11 @@ import React, { ComponentPropsWithoutRef, FC } from "react";
 import { Button } from "../../ui/ Button";
 import { Avatar } from "../../ui/Avatar";
 import { SvgHover } from "../../ui/SvgHover";
-import { dummyImageURl } from "../../utils/constants";
 
-interface FormFeedProps extends ComponentPropsWithoutRef<"textarea"> {}
+interface FormFeedProps extends ComponentPropsWithoutRef<"textarea"> {
+  image?: string;
+  username: string;
+}
 
 const Controls = [
   {
@@ -58,12 +60,12 @@ const Controls = [
   },
 ];
 
-const FormFeed: FC<FormFeedProps> = ({ ...props }) => {
+const FormFeed: FC<FormFeedProps> = ({ image, username, ...props }) => {
   return (
     <>
       <section className="flex px-5 gap-4 pb-2 mt-1">
         <div>
-          <Avatar image={dummyImageURl} initial="D" />
+          <Avatar image={image} username={username} />
         </div>
         <form className="w-full ">
           <textarea

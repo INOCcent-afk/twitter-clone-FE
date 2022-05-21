@@ -4,11 +4,11 @@ import React, { FC } from "react";
 
 interface AvatarProps {
   image?: string;
-  initial: string;
+  username: string;
   size?: number;
 }
 
-export const Avatar: FC<AvatarProps> = ({ image, initial }) => {
+export const Avatar: FC<AvatarProps> = ({ image, username }) => {
   return (
     <Link href="/" passHref>
       <button role="link">
@@ -20,7 +20,7 @@ export const Avatar: FC<AvatarProps> = ({ image, initial }) => {
             className="absolute left-1/2 top-1/2 translate-x-[-50%] translate-y-[-50%] z-10 text-2xl"
             aria-hidden={image ? true : false}
           >
-            {initial}
+            {username.charAt(0).toLocaleUpperCase()}
           </span>
         </div>
       </button>

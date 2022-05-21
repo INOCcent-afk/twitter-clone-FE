@@ -16,7 +16,6 @@ export const useSignUpMutate = () => {
     },
     {
       onSuccess: async (data) => {
-        // add more typings on react query
         if (isServer()) {
           localStorage.setItem("jwt", data.data.jwt);
         }
