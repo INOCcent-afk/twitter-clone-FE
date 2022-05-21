@@ -2,12 +2,12 @@ import { ISignup } from "@/models/auth/Signup";
 import { useSignUpMutate } from "@/services/react-query/auth";
 import { Button } from "@/ui/ Button";
 import { Input } from "@/ui/Input";
-import { SwapLeftOutlined } from "@ant-design/icons";
+import { LoadingOutlined, SwapLeftOutlined } from "@ant-design/icons";
 import React, { FormEvent, SyntheticEvent, useContext } from "react";
 import { Form, FormContext } from "../formContext";
 
 export const StepThree = () => {
-  const { mutate } = useSignUpMutate();
+  const { mutate, isLoading } = useSignUpMutate();
   const { signUpData, setSignUpData, setStep } = useContext(FormContext);
 
   const handleForm = (
@@ -85,6 +85,7 @@ export const StepThree = () => {
             onClick={(e) => signUp(e, signUpData)}
             disabled={signUpData.email && signUpData.password ? false : true}
             data-testid="submit-button"
+            icon={isLoading && <LoadingOutlined />}
           >
             Sign up
           </Button>

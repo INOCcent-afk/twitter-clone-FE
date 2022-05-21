@@ -58,7 +58,7 @@ describe("Twitter signup form", () => {
   });
 
   it("should be able to close modal without errors", () => {
-    cy.get("body").trigger("keydown", { keyCode: 27 });
+    cy.get("body").trigger("keydown", { keyCode: 27 }); // press ESC
 
     cy.url().should("include", "/");
   });

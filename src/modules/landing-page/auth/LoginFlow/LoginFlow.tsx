@@ -2,7 +2,11 @@ import { ISignIn } from "@/models/auth/SignIn";
 import { useSignInMutate } from "@/services/react-query/auth";
 import { Button } from "@/ui/ Button";
 import { Input } from "@/ui/Input";
-import { CloseOutlined, TwitterOutlined } from "@ant-design/icons";
+import {
+  CloseOutlined,
+  LoadingOutlined,
+  TwitterOutlined,
+} from "@ant-design/icons";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { FormEvent, SyntheticEvent, useState } from "react";
@@ -18,7 +22,7 @@ interface LoginFlow {
 
 export const LoginFlow: FC<LoginFlow> = ({ isOpen, onRequestClose }) => {
   const router = useRouter();
-  const { mutate } = useSignInMutate();
+  const { mutate, isLoading } = useSignInMutate();
   const [loginData, setLoginData] = useState({
     identifier: "",
     password: "",
@@ -95,6 +99,7 @@ export const LoginFlow: FC<LoginFlow> = ({ isOpen, onRequestClose }) => {
               onClick={(e) => handleSubmit(e, loginData)}
               type="submit"
               data-testid="submit-button"
+              icon={isLoading && <LoadingOutlined />}
             >
               Login
             </Button>

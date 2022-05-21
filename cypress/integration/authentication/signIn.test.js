@@ -14,6 +14,13 @@ describe("Twitter Landing Page", () => {
 
     cy.get("[data-testid=submit-button]").click();
 
+    cy.intercept({
+      method: "POST",
+      url: "/api/auth/local",
+    }).as("signInRequest");
+
+    cy.wait("@signInRequest");
+
     cy.url().should("include", "home", () => {
       expect(localStorage.getItem("jwt")).to.exist();
     });

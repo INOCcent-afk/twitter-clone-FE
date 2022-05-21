@@ -62,8 +62,8 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
             loading ? `opacity-0` : ``
           }`}
         >
-          {icon}
           <span>{children}</span>
+          {icon}
         </span>
         {loading ? (
           <span className="absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%]">

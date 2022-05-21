@@ -10,7 +10,7 @@ import { signIn, signUp } from "services/resources/auth";
 export const useSignUpMutate = () => {
   const router = useRouter();
 
-  const { mutate, data, isSuccess, isError } = useMutation(
+  const { mutate, data, isSuccess, isError, isLoading } = useMutation(
     async (data: ISignup) => {
       return signUp(data);
     },
@@ -28,19 +28,16 @@ export const useSignUpMutate = () => {
       onError: async (error: IRQOnError) => {
         toast.error(error.response.data.error.message, { icon: false });
       },
-      onMutate: async () => {
-        toast.warn("Creating your account!", { icon: false });
-      },
     }
   );
 
-  return { mutate, data, isSuccess, isError };
+  return { mutate, data, isSuccess, isError, isLoading };
 };
 
 export const useSignInMutate = () => {
   const router = useRouter();
 
-  const { mutate, data, isSuccess, isError } = useMutation(
+  const { mutate, data, isSuccess, isError, isLoading } = useMutation(
     async (data: ISignIn) => {
       return signIn(data);
     },
@@ -57,11 +54,8 @@ export const useSignInMutate = () => {
       onError: async (error: IRQOnError) => {
         toast.error(error.response.data.error.message, { icon: false });
       },
-      onMutate: async () => {
-        toast.warn("signing in", { icon: false });
-      },
     }
   );
 
-  return { mutate, data, isSuccess, isError };
+  return { mutate, data, isSuccess, isError, isLoading };
 };

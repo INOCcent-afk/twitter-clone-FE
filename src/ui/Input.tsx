@@ -17,7 +17,7 @@ export const Input: FC<InputProps> = ({
   return (
     <>
       <div
-        className={`relative px-3 pt-7 pb-2 rounded-md border 
+        className={`relative px-3 pt-8 pb-2 rounded-md border 
         ${
           error
             ? "border-red-100 focus-within:border-red-100"
