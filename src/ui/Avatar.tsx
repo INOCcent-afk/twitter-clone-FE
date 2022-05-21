@@ -3,7 +3,7 @@ import Link from "next/link";
 import React, { FC } from "react";
 
 interface AvatarProps {
-  image?: string;
+  image?: string | null;
   username: string;
   size?: number;
 }

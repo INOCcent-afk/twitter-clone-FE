@@ -11,11 +11,17 @@ import { Tweet } from "../../ui/Tweet";
 import { Trends } from "../../ui/Trends";
 import { Footer } from "../../ui/Footer";
 import { useMe } from "@/services/react-query/me";
+import { useTweetFeeds } from "@/services/react-query/feed";
+import { LoadingOutlined } from "@ant-design/icons";
 
 export const HomePage: NextPage = () => {
   const [search, setSearch] = useState("");
   const [textarea, setTextArea] = useState("");
-  const { data } = useMe();
+  const { data: meData } = useMe();
+  const { data: feedsData, isLoading: isFeedsDataLoading } = useTweetFeeds(
+    meData?.data.id,
+    meData?.data.id ? true : false
+  );
 
   const clearSearch = () => {
     setSearch("");
@@ -32,12 +38,18 @@ export const HomePage: NextPage = () => {
       mainPanel={
         <>
           <HomePageHeader />
-          {data && (
+          {meData ? (
             <FormFeed
               value={textarea}
               onChange={(e) => setTextArea(e.currentTarget.value)}
-              image={data?.data.image}
-              username={data?.data.username}
+              image={meData?.data.image}
+              username={meData?.data.username}
+            />
+          ) : (
+            <FormFeed
+              value={textarea}
+              onChange={(e) => setTextArea(e.currentTarget.value)}
+              username=""
             />
           )}
           <div className="flex justify-center">
@@ -46,7 +58,20 @@ export const HomePage: NextPage = () => {
             </button>
           </div>
           <hr />
-          <Tweet />
+          {isFeedsDataLoading && (
+            <div className="text-4xl text-center my-5 text-primary">
+              <LoadingOutlined />
+            </div>
+          )}
+          {feedsData &&
+            feedsData?.data.data.map((tweet, index) => (
+              <Tweet
+                key={index}
+                image={tweet.attributes.media.data}
+                text={tweet.attributes.text}
+                id={tweet.id}
+              />
+            ))}
         </>
       }
       rightPanelHeader={

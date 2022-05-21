@@ -7,11 +7,16 @@ import {
 } from "@ant-design/icons";
 import Link from "next/link";
 import React, { FC, SyntheticEvent } from "react";
-import { dummyImageURl } from "../utils/constants";
 import { Avatar } from "./Avatar";
 import { SvgHover } from "./SvgHover";
 
-export const Tweet: FC = React.memo(() => {
+interface TweetProps {
+  image?: string | null;
+  id: number;
+  text: string;
+}
+
+export const Tweet: FC<TweetProps> = React.memo(({ image, text }) => {
   const closeClicked = (e: SyntheticEvent) => {
     e.stopPropagation();
     e.preventDefault();
@@ -20,7 +25,7 @@ export const Tweet: FC = React.memo(() => {
     <Link href="/" passHref>
       <a>
         <article className="flex gap-3 px-3 pt-3 pb-1 bg-black border-b border-b-secondary">
-          <Avatar image={dummyImageURl} username="dave" />
+          <Avatar image={image} username="dave" />
           <div className="w-full">
             <div className="flex">
               <div className="flex items-center justify-between w-full">
@@ -67,7 +72,7 @@ export const Tweet: FC = React.memo(() => {
               </div>
             </div>
             <div className="text-gray">
-              <p>Talk less. Do more.</p>
+              <p>{text}</p>
             </div>
             <div className="flex items-center justify-between my-1 mr-20 ml-[-5px]">
               <button
