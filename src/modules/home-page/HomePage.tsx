@@ -38,7 +38,7 @@ export const HomePage: NextPage = () => {
       mainPanel={
         <>
           <HomePageHeader />
-          <div className="hidden">
+          <div className="hidden lg:block">
             {meData ? (
               <FormFeed
                 value={textarea}
@@ -66,6 +66,126 @@ export const HomePage: NextPage = () => {
               <LoadingOutlined />
             </div>
           )}
+          {feedsData &&
+            feedsData?.data.data.map((tweet) => (
+              <Tweet
+                key={tweet.id}
+                text={tweet.attributes.text}
+                id={tweet.attributes.user.data.id}
+              />
+            ))}
+          {feedsData &&
+            feedsData?.data.data.map((tweet) => (
+              <Tweet
+                key={tweet.id}
+                text={tweet.attributes.text}
+                id={tweet.attributes.user.data.id}
+              />
+            ))}
+          {feedsData &&
+            feedsData?.data.data.map((tweet) => (
+              <Tweet
+                key={tweet.id}
+                text={tweet.attributes.text}
+                id={tweet.attributes.user.data.id}
+              />
+            ))}
+          {feedsData &&
+            feedsData?.data.data.map((tweet) => (
+              <Tweet
+                key={tweet.id}
+                text={tweet.attributes.text}
+                id={tweet.attributes.user.data.id}
+              />
+            ))}
+          {feedsData &&
+            feedsData?.data.data.map((tweet) => (
+              <Tweet
+                key={tweet.id}
+                text={tweet.attributes.text}
+                id={tweet.attributes.user.data.id}
+              />
+            ))}
+          {feedsData &&
+            feedsData?.data.data.map((tweet) => (
+              <Tweet
+                key={tweet.id}
+                text={tweet.attributes.text}
+                id={tweet.attributes.user.data.id}
+              />
+            ))}
+          {feedsData &&
+            feedsData?.data.data.map((tweet) => (
+              <Tweet
+                key={tweet.id}
+                text={tweet.attributes.text}
+                id={tweet.attributes.user.data.id}
+              />
+            ))}
+          {feedsData &&
+            feedsData?.data.data.map((tweet) => (
+              <Tweet
+                key={tweet.id}
+                text={tweet.attributes.text}
+                id={tweet.attributes.user.data.id}
+              />
+            ))}
+          {feedsData &&
+            feedsData?.data.data.map((tweet) => (
+              <Tweet
+                key={tweet.id}
+                text={tweet.attributes.text}
+                id={tweet.attributes.user.data.id}
+              />
+            ))}
+          {feedsData &&
+            feedsData?.data.data.map((tweet) => (
+              <Tweet
+                key={tweet.id}
+                text={tweet.attributes.text}
+                id={tweet.attributes.user.data.id}
+              />
+            ))}
+          {feedsData &&
+            feedsData?.data.data.map((tweet) => (
+              <Tweet
+                key={tweet.id}
+                text={tweet.attributes.text}
+                id={tweet.attributes.user.data.id}
+              />
+            ))}
+          {feedsData &&
+            feedsData?.data.data.map((tweet) => (
+              <Tweet
+                key={tweet.id}
+                text={tweet.attributes.text}
+                id={tweet.attributes.user.data.id}
+              />
+            ))}
+          {feedsData &&
+            feedsData?.data.data.map((tweet) => (
+              <Tweet
+                key={tweet.id}
+                text={tweet.attributes.text}
+                id={tweet.attributes.user.data.id}
+              />
+            ))}
+          {feedsData &&
+            feedsData?.data.data.map((tweet) => (
+              <Tweet
+                key={tweet.id}
+                text={tweet.attributes.text}
+                id={tweet.attributes.user.data.id}
+              />
+            ))}
+          {feedsData &&
+            feedsData?.data.data.map((tweet) => (
+              <Tweet
+                key={tweet.id}
+                text={tweet.attributes.text}
+                id={tweet.attributes.user.data.id}
+              />
+            ))}
           {feedsData &&
             feedsData?.data.data.map((tweet) => (
               <Tweet

@@ -37,6 +37,7 @@ body {
 
 body {
   overscroll-behavior-y: none;
+  overflow-x: hidden;
 }
 
 h1,

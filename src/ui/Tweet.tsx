@@ -23,7 +23,7 @@ export const Tweet: FC<TweetProps> = React.memo(({ text, id }) => {
   return (
     <Link href="/" passHref>
       <a>
-        <article className="flex gap-3 px-3 pt-3 pb-1 bg-black border-b border-b-secondary">
+        <article className="flex gap-3 px-3 pt-3 bg-black pb-1 border-b border-b-secondary">
           <Avatar id={id} username="dave" />
           <div className="w-full">
             <div className="flex">

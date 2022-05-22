@@ -11,6 +11,7 @@ import {
   NumberOutlined,
   QuestionCircleOutlined,
   RocketOutlined,
+  SearchOutlined,
   SettingOutlined,
   SwapOutlined,
   TagOutlined,
@@ -23,6 +24,7 @@ import React, { useState } from "react";
 import { useClickOutsideHook } from "../hooks/useClickOutsideHook";
 import { Button } from "./ Button";
 import FocusTrap from "focus-trap-react";
+import { CreateTweet } from "./CreateTweet";
 
 const mainPages = [
   { path: "/", name: "Home", icon: <HomeOutlined aria-hidden /> },
@@ -100,16 +102,26 @@ export const SidebarNavigation = () => {
   };
 
   return (
-    <div>
+    <>
       <nav>
         <ul className="ml-[-5px]">
+          <li className="text-2xl my-4 leading-0 lg:hidden">
+            <Link href="/explore">
+              <a className="">
+                <span className="flex items-center justify-center gap-5 hover:bg-secondary w-fit px-4 py-2 rounded-3xl ease-out duration-100">
+                  <span className="sr-only">search</span>
+                  <SearchOutlined aria-hidden />
+                </span>
+              </a>
+            </Link>
+          </li>
           {mainPages.map((link) => (
-            <li className="text-2xl my-2 leading-0" key={link.name}>
+            <li className="text-2xl my-4 leading-0" key={link.name}>
               <Link href={link.path}>
                 <a className="">
                   <span className="flex items-center justify-center gap-5 hover:bg-secondary w-fit px-4 py-2 rounded-3xl ease-out duration-100">
                     {link.icon}
-                    <span>{link.name}</span>
+                    <span className="hidden lg:block">{link.name}</span>
                   </span>
                 </a>
               </Link>
@@ -123,18 +135,21 @@ export const SidebarNavigation = () => {
               aria-controls="moreNavModal"
             >
               <MinusCircleOutlined aria-hidden />
-              <span className="text-gray">More</span>
+              <span className="text-gray hidden lg:block">More</span>
             </button>
             {isModalOpen && (
               <MoreNavModal closeModal={onEsc} ref={userSettingNode} />
             )}
           </li>
+          <li className="mt-4 justify-center lg:hidden">
+            <CreateTweet />
+          </li>
         </ul>
       </nav>
-      <div className="mt-8 flex justify-center">
+      <div className="mt-8 justify-center hidden lg:flex">
         <Button>Tweet</Button>
       </div>
-    </div>
+    </>
   );
 };
 
@@ -146,19 +161,23 @@ const MoreNavModal = React.forwardRef<HTMLUListElement, MoreNavModalProps>(
   ({ closeModal }, ref) => {
     return (
       <FocusTrap>
-        <div aria-modal={true} id="moreNavModal">
+        <div
+          className="absolute bottom-[-100px] z-50"
+          aria-modal={true}
+          id="moreNavModal"
+        >
           <ul
             ref={ref}
-            className="absolute text-base bg-black rounded-md overflow-hidden bottom-0 left-7 modal-boxShadow z-50"
+            className="text-base bg-black rounded-md overflow-hidden left-7 modal-boxShadow min-w-[200px]"
             onKeyDown={(e: any) => closeModal(e)}
           >
             {secondaryPages.map((link) => (
               <li
-                className="py-3 px-3 hover:bg-secondary ease-out duration-100"
+                className="hover:bg-secondary ease-out duration-100"
                 key={link.name}
               >
                 <Link href={link.path}>
-                  <a className="flex items-center gap-5">
+                  <a className="flex items-center gap-5 w-full py-3 px-3">
                     {link.icon}
                     <span>{link.name}</span>
                   </a>
@@ -168,11 +187,11 @@ const MoreNavModal = React.forwardRef<HTMLUListElement, MoreNavModalProps>(
             <hr />
             {displayPages.map((link) => (
               <li
-                className="flex items-center gap-5 py-3 px-3 hover:bg-secondary ease-out duration-100"
+                className="flex items-center gap-5 hover:bg-secondary ease-out duration-100"
                 key={link.name}
               >
                 <Link href={link.path}>
-                  <a className="flex items-center gap-5">
+                  <a className="flex items-center py-3 px-3 gap-5 w-full">
                     {link.icon}
                     <span>{link.name}</span>
                   </a>

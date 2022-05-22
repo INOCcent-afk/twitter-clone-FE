@@ -12,15 +12,13 @@ export const HomePageHeader = () => {
     <Header>
       <div className="flex items-center justify-between w-full px-4">
         <div className="flex items-center gap-4">
-          {meData ? (
-            <Avatar
-              username={meData?.data.username}
-              image={meData.data.image && meData?.data.image.url}
-              size={40}
-            />
-          ) : (
-            <Avatar username="" image="" size={30} />
-          )}
+          <div className="lg:hidden">
+            {meData ? (
+              <Avatar username={meData?.data.username} size={40} />
+            ) : (
+              <Avatar username="" size={30} />
+            )}
+          </div>
           <h2>Latests Tweets</h2>
         </div>
         <button className="group">
