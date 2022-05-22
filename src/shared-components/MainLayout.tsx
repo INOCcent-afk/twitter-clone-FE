@@ -14,14 +14,14 @@ export const MainLayout: FC<MainLayoutProps> = ({
   rightPanelHeader,
 }) => {
   return (
-    <div className="grid grid-cols-12 px-3 max-w-[1280px] mx-auto gap-4">
-      <div className="col-span-3">
+    <div className="grid grid-cols-12  max-w-[1280px] mx-auto gap-4">
+      <div className="col-span-3 hidden">
         <div className="sticky top-0">{leftPanel}</div>
       </div>
-      <main className="col-span-6 border-x border-x-secondary min-h-screen">
+      <main className="col-span-12 border-x border-x-secondary min-h-screen">
         {mainPanel}
       </main>
-      <div className="col-span-3">
+      <div className="col-span-3 hidden">
         {rightPanelHeader}
         <div className="sticky top-20 pb-10">{rightPanel}</div>
       </div>

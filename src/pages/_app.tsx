@@ -12,7 +12,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     <QueryClientProvider client={queryClient}>
       <ReactQueryDevtools initialIsOpen={false} />
       <ToastContainer theme="dark" />
-      <div className="bg-black text-white">
+      <div className="bg-black text-white w-full">
         <Component {...pageProps} />
       </div>
     </QueryClientProvider>

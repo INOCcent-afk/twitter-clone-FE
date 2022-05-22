@@ -21,7 +21,11 @@ export interface IMe {
 
   username: string;
 
-  image: string;
+  image: {
+    id: number;
+
+    url: string;
+  };
 }
 
 export interface IMeQuery {

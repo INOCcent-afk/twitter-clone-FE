@@ -13,3 +13,15 @@ export const getTweetFeeds = async (id: number | undefined): Promise<IFeed> => {
     throw error;
   }
 };
+
+export const getTweetAuthorImage = async (id: number | undefined) => {
+  try {
+    const response = await axios.get(
+      `${apiConfig.url.API_URL}/api/users/${id}`
+    );
+
+    return response;
+  } catch (error) {
+    throw error;
+  }
+};

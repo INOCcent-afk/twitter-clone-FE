@@ -38,20 +38,23 @@ export const HomePage: NextPage = () => {
       mainPanel={
         <>
           <HomePageHeader />
-          {meData ? (
-            <FormFeed
-              value={textarea}
-              onChange={(e) => setTextArea(e.currentTarget.value)}
-              image={meData?.data.image}
-              username={meData?.data.username}
-            />
-          ) : (
-            <FormFeed
-              value={textarea}
-              onChange={(e) => setTextArea(e.currentTarget.value)}
-              username=""
-            />
-          )}
+          <div className="hidden">
+            {meData ? (
+              <FormFeed
+                value={textarea}
+                onChange={(e) => setTextArea(e.currentTarget.value)}
+                userID={meData.data.id}
+                username={meData?.data.username}
+              />
+            ) : (
+              <FormFeed
+                value={textarea}
+                onChange={(e) => setTextArea(e.currentTarget.value)}
+                username=""
+              />
+            )}
+          </div>
+          <hr />
           <div className="flex justify-center">
             <button className="text-primary text-center py-3 hover:bg-accentGray duration-200 ease-in-out w-full">
               Show 4 Tweets
@@ -64,12 +67,11 @@ export const HomePage: NextPage = () => {
             </div>
           )}
           {feedsData &&
-            feedsData?.data.data.map((tweet, index) => (
+            feedsData?.data.data.map((tweet) => (
               <Tweet
-                key={index}
-                image={tweet.attributes.media.data}
+                key={tweet.id}
                 text={tweet.attributes.text}
-                id={tweet.id}
+                id={tweet.attributes.user.data.id}
               />
             ))}
         </>

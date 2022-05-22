@@ -25,6 +25,17 @@ module.exports = {
       },
       accentGray: "var(--color-accent-gray)",
     },
+    screens: {
+      sm: "500px",
+
+      md: "768px",
+
+      lg: "988px",
+
+      xl: "1280px",
+
+      "2xl": "1536px",
+    },
   },
   plugins: [],
 };

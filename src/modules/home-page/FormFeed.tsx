@@ -11,7 +11,7 @@ import { Avatar } from "../../ui/Avatar";
 import { SvgHover } from "../../ui/SvgHover";
 
 interface FormFeedProps extends ComponentPropsWithoutRef<"textarea"> {
-  image?: string;
+  userID?: number;
   username: string;
 }
 
@@ -60,12 +60,12 @@ const Controls = [
   },
 ];
 
-const FormFeed: FC<FormFeedProps> = ({ image, username, ...props }) => {
+const FormFeed: FC<FormFeedProps> = ({ userID, username, ...props }) => {
   return (
     <>
       <section className="flex px-5 gap-4 pb-2 mt-1">
         <div>
-          <Avatar image={image} username={username} />
+          <Avatar id={userID} username={username} />
         </div>
         <form className="w-full ">
           <textarea
@@ -96,7 +96,6 @@ const FormFeed: FC<FormFeedProps> = ({ image, username, ...props }) => {
           </div>
         </form>
       </section>
-      <hr />
     </>
   );
 };

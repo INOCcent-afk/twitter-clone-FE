@@ -11,12 +11,11 @@ import { Avatar } from "./Avatar";
 import { SvgHover } from "./SvgHover";
 
 interface TweetProps {
-  image?: string | null;
   id: number;
   text: string;
 }
 
-export const Tweet: FC<TweetProps> = React.memo(({ image, text }) => {
+export const Tweet: FC<TweetProps> = React.memo(({ text, id }) => {
   const closeClicked = (e: SyntheticEvent) => {
     e.stopPropagation();
     e.preventDefault();
@@ -25,7 +24,7 @@ export const Tweet: FC<TweetProps> = React.memo(({ image, text }) => {
     <Link href="/" passHref>
       <a>
         <article className="flex gap-3 px-3 pt-3 pb-1 bg-black border-b border-b-secondary">
-          <Avatar image={image} username="dave" />
+          <Avatar id={id} username="dave" />
           <div className="w-full">
             <div className="flex">
               <div className="flex items-center justify-between w-full">
