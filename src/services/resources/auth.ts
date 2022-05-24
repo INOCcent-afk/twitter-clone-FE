@@ -4,7 +4,6 @@ import axios from "axios";
 import { apiConfig } from "@/services/config";
 import { isServer } from "@/utils/isServer";
 import Router from "next/router";
-import { toast } from "react-toastify";
 
 export const signUp = async (data: ISignup) => {
   try {
@@ -36,6 +35,6 @@ export const logout = async () => {
   if (isServer()) {
     localStorage.removeItem("jwt");
     Router.push("/");
-    toast.warn("Bye have a good time!");
+    window.location.reload();
   }
 };

@@ -7,12 +7,13 @@ import { HomePageHeader } from "./home-page-header";
 import { Header } from "../../ui/headers/components/Header";
 import { Search } from "../../ui/Search";
 import FormFeed from "./FormFeed";
-import { Tweet } from "../../ui/Tweet";
 import { Trends } from "../../ui/Trends";
 import { Footer } from "../../ui/Footer";
 import { useMe } from "@/services/react-query/me";
 import { useTweetFeeds } from "@/services/react-query/feed";
 import { LoadingOutlined } from "@ant-design/icons";
+import { Tweet } from "@/ui/Tweet";
+import { NoDataMessage } from "@/ui/NoDataMessage";
 
 export const HomePage: NextPage = () => {
   const [search, setSearch] = useState("");
@@ -55,145 +56,26 @@ export const HomePage: NextPage = () => {
             )}
           </div>
           <hr />
-          <div className="flex justify-center">
-            <button className="text-primary text-center py-3 hover:bg-accentGray duration-200 ease-in-out w-full">
-              Show 4 Tweets
-            </button>
-          </div>
-          <hr />
           {isFeedsDataLoading && (
             <div className="text-4xl text-center my-5 text-primary">
               <LoadingOutlined />
             </div>
           )}
-          {feedsData &&
-            feedsData?.data.data.map((tweet) => (
+          {feedsData?.data.data &&
+            feedsData.data.data.map((tweet) => (
               <Tweet
                 key={tweet.id}
                 text={tweet.attributes.text}
                 id={tweet.attributes.user.data.id}
               />
             ))}
-          {feedsData &&
-            feedsData?.data.data.map((tweet) => (
-              <Tweet
-                key={tweet.id}
-                text={tweet.attributes.text}
-                id={tweet.attributes.user.data.id}
-              />
-            ))}
-          {feedsData &&
-            feedsData?.data.data.map((tweet) => (
-              <Tweet
-                key={tweet.id}
-                text={tweet.attributes.text}
-                id={tweet.attributes.user.data.id}
-              />
-            ))}
-          {feedsData &&
-            feedsData?.data.data.map((tweet) => (
-              <Tweet
-                key={tweet.id}
-                text={tweet.attributes.text}
-                id={tweet.attributes.user.data.id}
-              />
-            ))}
-          {feedsData &&
-            feedsData?.data.data.map((tweet) => (
-              <Tweet
-                key={tweet.id}
-                text={tweet.attributes.text}
-                id={tweet.attributes.user.data.id}
-              />
-            ))}
-          {feedsData &&
-            feedsData?.data.data.map((tweet) => (
-              <Tweet
-                key={tweet.id}
-                text={tweet.attributes.text}
-                id={tweet.attributes.user.data.id}
-              />
-            ))}
-          {feedsData &&
-            feedsData?.data.data.map((tweet) => (
-              <Tweet
-                key={tweet.id}
-                text={tweet.attributes.text}
-                id={tweet.attributes.user.data.id}
-              />
-            ))}
-          {feedsData &&
-            feedsData?.data.data.map((tweet) => (
-              <Tweet
-                key={tweet.id}
-                text={tweet.attributes.text}
-                id={tweet.attributes.user.data.id}
-              />
-            ))}
-          {feedsData &&
-            feedsData?.data.data.map((tweet) => (
-              <Tweet
-                key={tweet.id}
-                text={tweet.attributes.text}
-                id={tweet.attributes.user.data.id}
-              />
-            ))}
-          {feedsData &&
-            feedsData?.data.data.map((tweet) => (
-              <Tweet
-                key={tweet.id}
-                text={tweet.attributes.text}
-                id={tweet.attributes.user.data.id}
-              />
-            ))}
-          {feedsData &&
-            feedsData?.data.data.map((tweet) => (
-              <Tweet
-                key={tweet.id}
-                text={tweet.attributes.text}
-                id={tweet.attributes.user.data.id}
-              />
-            ))}
-          {feedsData &&
-            feedsData?.data.data.map((tweet) => (
-              <Tweet
-                key={tweet.id}
-                text={tweet.attributes.text}
-                id={tweet.attributes.user.data.id}
-              />
-            ))}
-          {feedsData &&
-            feedsData?.data.data.map((tweet) => (
-              <Tweet
-                key={tweet.id}
-                text={tweet.attributes.text}
-                id={tweet.attributes.user.data.id}
-              />
-            ))}
-          {feedsData &&
-            feedsData?.data.data.map((tweet) => (
-              <Tweet
-                key={tweet.id}
-                text={tweet.attributes.text}
-                id={tweet.attributes.user.data.id}
-              />
-            ))}
-          {feedsData &&
-            feedsData?.data.data.map((tweet) => (
-              <Tweet
-                key={tweet.id}
-                text={tweet.attributes.text}
-                id={tweet.attributes.user.data.id}
-              />
-            ))}
-          {feedsData &&
-            feedsData?.data.data.map((tweet) => (
-              <Tweet
-                key={tweet.id}
-                text={tweet.attributes.text}
-                id={tweet.attributes.user.data.id}
-              />
-            ))}
+          {isFeedsDataLoading && feedsData && feedsData.data.data.length ? (
+            <div className="my-5">
+              <NoDataMessage heading={`"No Tweets yet!"`}>
+                Go follow other users to get latests tweets.
+              </NoDataMessage>
+            </div>
+          ) : null}
         </>
       }
       rightPanelHeader={
