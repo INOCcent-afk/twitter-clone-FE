@@ -1,14 +1,30 @@
 import { IFeed } from "@/models/tweet/ITweet";
 import { useQuery } from "react-query";
-import { getTweetAuthorImage, getTweetFeeds } from "../resources/feed";
+import {
+  getTweetAuthorImage,
+  getProfileTweetFeeds,
+  getTweetFeeds,
+} from "../resources/feed";
 
-export const useTweetFeeds = (
+export const useProfileTweetFeeds = (
   id: number | undefined,
   isIDavailable: boolean
 ) => {
   const { data, isLoading, isError, isFetching } = useQuery<IFeed, Error>(
-    "feeds",
-    () => getTweetFeeds(id),
+    "profileFeeds",
+    () => getProfileTweetFeeds(id),
+    {
+      enabled: isIDavailable,
+    }
+  );
+
+  return { data, isFetching, isError, isLoading };
+};
+
+export const useTweetFeeds = (ids: number[], isIDavailable: boolean) => {
+  const { data, isLoading, isError, isFetching } = useQuery<IFeed, Error>(
+    "tweetFeeds",
+    () => getTweetFeeds(ids),
     {
       enabled: isIDavailable,
     }

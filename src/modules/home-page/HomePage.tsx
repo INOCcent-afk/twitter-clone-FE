@@ -10,7 +10,10 @@ import FormFeed from "./FormFeed";
 import { Trends } from "../../ui/Trends";
 import { Footer } from "../../ui/Footer";
 import { useMe } from "@/services/react-query/me";
-import { useTweetFeeds } from "@/services/react-query/feed";
+import {
+  useProfileTweetFeeds,
+  useTweetFeeds,
+} from "@/services/react-query/feed";
 import { LoadingOutlined } from "@ant-design/icons";
 import { Tweet } from "@/ui/Tweet";
 import { NoDataMessage } from "@/ui/NoDataMessage";
@@ -19,14 +22,18 @@ export const HomePage: NextPage = () => {
   const [search, setSearch] = useState("");
   const [textarea, setTextArea] = useState("");
   const { data: meData } = useMe();
-  const { data: feedsData, isLoading: isFeedsDataLoading } = useTweetFeeds(
-    meData?.data.id,
-    meData?.data.id ? true : false
-  );
+  const { data: feedsData, isLoading: isFeedsDataLoading } =
+    useProfileTweetFeeds(meData?.data.id, meData?.data.id ? true : false);
 
   const clearSearch = () => {
     setSearch("");
   };
+
+  const tite = [4, 3];
+
+  const { data: pota } = useTweetFeeds(tite, true);
+
+  console.log(pota);
 
   return (
     <MainLayout
