@@ -1,3 +1,8 @@
+export interface IMeFullQuery extends IMe {
+  followings: IMe[];
+
+  followers: IMe[];
+}
 export interface IMe {
   birthday: string;
 
@@ -29,5 +34,5 @@ export interface IMe {
 }
 
 export interface IMeQuery {
-  data: IMe;
+  data: IMeFullQuery;
 }

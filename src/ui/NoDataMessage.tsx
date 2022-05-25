@@ -18,6 +18,7 @@ export const NoDataMessage: FC<NoDataMessageProps> = ({
         layout="fixed"
         height={200}
         width={400}
+        priority
       />
       <h4 className="text-white text-3xl break-all">{heading}</h4>
       <p className="text-graySecondary text-sm">{children}</p>

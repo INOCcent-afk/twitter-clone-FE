@@ -20,6 +20,7 @@ export const Tweet: FC<TweetProps> = React.memo(({ text, id }) => {
     e.stopPropagation();
     e.preventDefault();
   };
+
   return (
     <Link href="/" passHref>
       <a>

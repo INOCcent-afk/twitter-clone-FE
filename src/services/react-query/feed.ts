@@ -1,3 +1,4 @@
+import { IMe } from "@/models/IMe";
 import { IFeed } from "@/models/tweet/ITweet";
 import { useQuery } from "react-query";
 import {
@@ -21,7 +22,10 @@ export const useProfileTweetFeeds = (
   return { data, isFetching, isError, isLoading };
 };
 
-export const useTweetFeeds = (ids: number[], isIDavailable: boolean) => {
+export const useTweetFeeds = (
+  ids: IMe[] | undefined,
+  isIDavailable: boolean
+) => {
   const { data, isLoading, isError, isFetching } = useQuery<IFeed, Error>(
     "tweetFeeds",
     () => getTweetFeeds(ids),

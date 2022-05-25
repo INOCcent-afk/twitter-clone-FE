@@ -1,3 +1,4 @@
+import { IMe } from "@/models/IMe";
 import { IFeed } from "@/models/tweet/ITweet";
 import axios from "axios";
 import { apiConfig } from "../config";
@@ -16,13 +17,13 @@ export const getProfileTweetFeeds = async (
   }
 };
 
-export const getTweetFeeds = async (ids: number[]): Promise<IFeed> => {
+export const getTweetFeeds = async (ids: IMe[] | undefined): Promise<IFeed> => {
   try {
     const filter = "filters[user][id]=";
 
-    const idsParam = ids
-      .map((id: number) => {
-        return `${filter}${id}&`;
+    const idsParam = ids!
+      .map((user) => {
+        return `${filter}${user.id}&`;
       })
       .join("");
 

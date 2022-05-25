@@ -10,10 +10,7 @@ import FormFeed from "./FormFeed";
 import { Trends } from "../../ui/Trends";
 import { Footer } from "../../ui/Footer";
 import { useMe } from "@/services/react-query/me";
-import {
-  useProfileTweetFeeds,
-  useTweetFeeds,
-} from "@/services/react-query/feed";
+import { useTweetFeeds } from "@/services/react-query/feed";
 import { LoadingOutlined } from "@ant-design/icons";
 import { Tweet } from "@/ui/Tweet";
 import { NoDataMessage } from "@/ui/NoDataMessage";
@@ -22,18 +19,18 @@ export const HomePage: NextPage = () => {
   const [search, setSearch] = useState("");
   const [textarea, setTextArea] = useState("");
   const { data: meData } = useMe();
-  const { data: feedsData, isLoading: isFeedsDataLoading } =
-    useProfileTweetFeeds(meData?.data.id, meData?.data.id ? true : false);
+  const { data: feedsData, isLoading: isFeedsDataLoading } = useTweetFeeds(
+    meData?.data.followings,
+    meData?.data ? true : false
+  );
 
   const clearSearch = () => {
     setSearch("");
   };
 
-  const tite = [4, 3];
+  // const tite = [4, 3];
 
-  const { data: pota } = useTweetFeeds(tite, true);
-
-  console.log(pota);
+  // const { data: pota } = useTweetFeeds(tite, true);
 
   return (
     <MainLayout
@@ -76,7 +73,7 @@ export const HomePage: NextPage = () => {
                 id={tweet.attributes.user.data.id}
               />
             ))}
-          {isFeedsDataLoading && feedsData && feedsData.data.data.length ? (
+          {feedsData && !isFeedsDataLoading && !feedsData.data.data.length ? (
             <div className="my-5">
               <NoDataMessage heading={`"No Tweets yet!"`}>
                 Go follow other users to get latests tweets.
