@@ -29,6 +29,15 @@ export const HomePage: NextPage = () => {
     setSearch("");
   };
 
+  const sortTweets =
+    feedsData &&
+    feedsData.data.data.sort((a, b) => {
+      let c = new Date(a.attributes.createdAt);
+      let d = new Date(b.attributes.createdAt);
+
+      return d.getTime() - c.getTime();
+    });
+
   return (
     <MainLayout
       leftPanel={
@@ -62,8 +71,8 @@ export const HomePage: NextPage = () => {
               <LoadingOutlined />
             </div>
           )}
-          {feedsData?.data.data &&
-            feedsData.data.data.map((tweet) => (
+          {sortTweets &&
+            sortTweets.map((tweet) => (
               <Tweet
                 key={tweet.id}
                 text={tweet.attributes.text}

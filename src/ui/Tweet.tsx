@@ -57,7 +57,7 @@ export const Tweet: FC<TweetProps> = React.memo(
                       .
                     </span>
 
-                    <span className="">
+                    <span className="text-sm leading-[0px]">
                       <Moment fromNow ago date={createdAt} />
                     </span>
                   </div>
