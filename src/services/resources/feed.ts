@@ -17,7 +17,10 @@ export const getProfileTweetFeeds = async (
   }
 };
 
-export const getTweetFeeds = async (ids: IMe[] | undefined): Promise<IFeed> => {
+export const getTweetFeeds = async (
+  ids: IMe[] | undefined,
+  currentUserID: number | undefined
+): Promise<IFeed> => {
   try {
     const filter = "filters[user][id]=";
 
@@ -28,7 +31,7 @@ export const getTweetFeeds = async (ids: IMe[] | undefined): Promise<IFeed> => {
       .join("");
 
     const response = await axios.get(
-      `${apiConfig.url.API_URL}/api/tweets?${idsParam}populate=*`
+      `${apiConfig.url.API_URL}/api/tweets?${idsParam}${filter}${currentUserID}&populate=*`
     );
 
     return response;

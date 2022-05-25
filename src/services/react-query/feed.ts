@@ -24,11 +24,12 @@ export const useProfileTweetFeeds = (
 
 export const useTweetFeeds = (
   ids: IMe[] | undefined,
+  currentUserID: number | undefined,
   isIDavailable: boolean
 ) => {
   const { data, isLoading, isError, isFetching } = useQuery<IFeed, Error>(
     "tweetFeeds",
-    () => getTweetFeeds(ids),
+    () => getTweetFeeds(ids, currentUserID),
     {
       enabled: isIDavailable,
     }

@@ -21,16 +21,13 @@ export const HomePage: NextPage = () => {
   const { data: meData } = useMe();
   const { data: feedsData, isLoading: isFeedsDataLoading } = useTweetFeeds(
     meData?.data.followings,
+    meData?.data.id,
     meData?.data ? true : false
   );
 
   const clearSearch = () => {
     setSearch("");
   };
-
-  // const tite = [4, 3];
-
-  // const { data: pota } = useTweetFeeds(tite, true);
 
   return (
     <MainLayout
@@ -71,6 +68,11 @@ export const HomePage: NextPage = () => {
                 key={tweet.id}
                 text={tweet.attributes.text}
                 id={tweet.attributes.user.data.id}
+                createdAt={tweet.attributes.createdAt}
+                likes={tweet.attributes.likes.data.length}
+                comments={tweet.attributes.comments.data.length}
+                reshare={tweet.attributes.reshare.data.length}
+                author={tweet.attributes.user.data.attributes.username}
               />
             ))}
           {feedsData && !isFeedsDataLoading && !feedsData.data.data.length ? (

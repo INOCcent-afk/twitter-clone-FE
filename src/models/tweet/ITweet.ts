@@ -15,7 +15,6 @@ export interface IFullFeed {
     createdAt: string;
     updatedAt: string;
     text: string;
-    likes: number;
     media: {
       data: null;
     };
@@ -26,6 +25,12 @@ export interface IFullFeed {
       };
     };
     comments: {
+      data: [];
+    };
+    reshare: {
+      data: [];
+    };
+    likes: {
       data: [];
     };
   };
