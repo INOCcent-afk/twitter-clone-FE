@@ -1,8 +1,9 @@
+import { IMeQuery } from "@/models/IMe";
 import { apiConfig } from "@/services/config";
-import { useAuthorAvatar } from "@/services/react-query/feed";
+import axios from "axios";
 import Image from "next/image";
 import Link from "next/link";
-import React, { FC } from "react";
+import React, { FC, useEffect, useState } from "react";
 
 interface AvatarProps {
   username: string;
@@ -11,7 +12,23 @@ interface AvatarProps {
 }
 
 export const Avatar: FC<AvatarProps> = ({ id, username, size = "56" }) => {
-  const { data } = useAuthorAvatar(id, id ? true : false);
+  const [data, setData] = useState<IMeQuery>();
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response: IMeQuery = await axios.get(
+          `http://localhost:1337/api/users/${id}`
+        );
+
+        setData(response);
+      } catch (error) {}
+    };
+
+    if (id) {
+      fetchData();
+    }
+  }, [id]);
 
   return (
     <Link href="/" passHref>
