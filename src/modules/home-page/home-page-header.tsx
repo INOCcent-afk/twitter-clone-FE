@@ -12,7 +12,7 @@ export const HomePageHeader = () => {
     <Header>
       <div className="flex items-center justify-between w-full px-4">
         <div className="flex items-center gap-4">
-          <div className="lg:hidden">
+          <div className="sm:hidden">
             {meData ? (
               <Avatar username={meData?.data.username} size={40} isLink />
             ) : (
