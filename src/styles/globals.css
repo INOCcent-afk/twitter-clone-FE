@@ -81,3 +81,7 @@ svg {
   box-shadow: rgb(255 255 255 / 20%) 0px 0px 15px,
     rgb(255 255 255 / 15%) 0px 0px 3px 1px;
 }
+
+.carret-shadow {
+  filter: drop-shadow(rgb(51, 54, 57) -1px 1px 1px);
+}
