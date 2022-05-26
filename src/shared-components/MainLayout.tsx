@@ -20,7 +20,7 @@ export const MainLayout: FC<MainLayoutProps> = ({
     <div className="grid grid-cols-12 lg:px-3 sm:max-w-[700px] lg:max-w-[1280px] mx-auto lg:gap-4 min-h-screen">
       <div className="hidden sm:block sm:col-span-2 lg:col-span-3 mx-auto relative">
         <div className="sticky top-0 z-50">{leftPanel}</div>
-        <UserMenu username="Daveinoc" id={3} />
+        <UserMenu />
       </div>
       <main className="col-span-12 sm:col-span-10 lg:col-span-6 border-x border-x-secondary mb-16 sm:mb-0">
         {mainPanel}
