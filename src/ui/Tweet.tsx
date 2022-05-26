@@ -32,7 +32,7 @@ export const Tweet: FC<TweetProps> = React.memo(
       <Link href="/" passHref>
         <a>
           <article className="flex gap-3 px-3 pt-3 bg-black pb-1 border-b border-b-secondary">
-            <Avatar id={id} username="dave" />
+            <Avatar id={id} username="dave" isLink />
             <div className="w-full">
               <div className="flex">
                 <div className="flex items-center justify-between w-full">
@@ -56,9 +56,8 @@ export const Tweet: FC<TweetProps> = React.memo(
                     <span role="presentation" className="mb-1">
                       .
                     </span>
-
                     <span className="text-sm leading-[0px]">
-                      <Moment fromNow ago date={createdAt} />
+                      <Moment fromNow date={createdAt} />
                     </span>
                   </div>
                   <button

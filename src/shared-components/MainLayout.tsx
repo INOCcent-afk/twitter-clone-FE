@@ -1,5 +1,6 @@
 import { CreateTweet } from "@/ui/CreateTweet";
 import { MobileNavigation } from "@/ui/MobileNavigation";
+import { UserMenu } from "@/ui/UserMenu";
 import React, { FC, ReactNode } from "react";
 
 interface MainLayoutProps {
@@ -16,9 +17,10 @@ export const MainLayout: FC<MainLayoutProps> = ({
   rightPanelHeader,
 }) => {
   return (
-    <div className="grid grid-cols-12 lg:px-3 sm:max-w-[700px] lg:max-w-[1280px] mx-auto gap-4 min-h-screen">
-      <div className="hidden sm:block sm:col-span-2 lg:col-span-3 mx-auto">
+    <div className="grid grid-cols-12 lg:px-3 sm:max-w-[700px] lg:max-w-[1280px] mx-auto lg:gap-4 min-h-screen">
+      <div className="hidden sm:block sm:col-span-2 lg:col-span-3 mx-auto relative">
         <div className="sticky top-0 z-50">{leftPanel}</div>
+        <UserMenu username="Daveinoc" id={3} />
       </div>
       <main className="col-span-12 sm:col-span-10 lg:col-span-6 border-x border-x-secondary mb-16 sm:mb-0">
         {mainPanel}

@@ -14,7 +14,7 @@ export const HomePageHeader = () => {
         <div className="flex items-center gap-4">
           <div className="lg:hidden">
             {meData ? (
-              <Avatar username={meData?.data.username} size={40} />
+              <Avatar username={meData?.data.username} size={40} isLink />
             ) : (
               <Avatar username="" size={30} />
             )}

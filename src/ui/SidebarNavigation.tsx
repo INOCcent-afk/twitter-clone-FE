@@ -168,12 +168,12 @@ const MoreNavModal = React.forwardRef<HTMLUListElement, MoreNavModalProps>(
         >
           <ul
             ref={ref}
-            className="text-base bg-black rounded-md overflow-hidden left-7 modal-boxShadow min-w-[200px]"
+            className="text-base bg-black rounded-md left-7 modal-boxShadow min-w-[200px]"
             onKeyDown={(e: any) => closeModal(e)}
           >
             {secondaryPages.map((link) => (
               <li
-                className="hover:bg-secondary ease-out duration-100"
+                className="focus: hover:bg-secondary ease-out duration-100"
                 key={link.name}
               >
                 <Link href={link.path}>

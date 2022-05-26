@@ -65,7 +65,7 @@ const FormFeed: FC<FormFeedProps> = ({ userID, username, ...props }) => {
     <>
       <section className="flex px-5 gap-4 pb-2 mt-1">
         <div>
-          <Avatar id={userID} username={username} />
+          <Avatar id={userID} username={username} isLink />
         </div>
         <form className="w-full ">
           <textarea
