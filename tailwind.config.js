@@ -12,6 +12,9 @@ module.exports = {
         DEFAULT: "var(--color-green)",
         900: "var(--color-green-900)",
       },
+      blue: {
+        400: "var(--color-blue-4)",
+      },
       red: {
         DEFAULT: "var(--color-red)",
         900: "var(--color-red-900)",

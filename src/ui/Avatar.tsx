@@ -10,10 +10,11 @@ interface AvatarProps {
   size?: number;
   id?: number;
   isLink?: boolean;
+  action?: () => void;
 }
 
 export const Avatar: FC<AvatarProps> = React.memo(
-  ({ id, username, size = "56", isLink }) => {
+  ({ id, username, size = "56", isLink, action }) => {
     const [data, setData] = useState<IMeQuery>();
 
     useEffect(() => {
@@ -38,6 +39,7 @@ export const Avatar: FC<AvatarProps> = React.memo(
           isLink ? "hover:opacity-90" : ""
         }`}
         style={{ width: `${size}px`, height: `${size}px` }}
+        onClick={action}
       >
         {data?.data.image && (
           <Image
