@@ -131,8 +131,6 @@ export const SidebarNavigation = () => {
             <button
               className="flex items-center gap-5 hover:bg-secondary w-fit px-4 py-2 rounded-3xl ease-out duration-100"
               onClick={() => setIsModalOpen(true)}
-              aria-expanded={isModalOpen}
-              aria-controls="moreNavModal"
             >
               <MinusCircleOutlined aria-hidden />
               <span className="text-gray hidden lg:block">More</span>
@@ -163,9 +161,11 @@ const MoreNavModal = React.forwardRef<HTMLUListElement, MoreNavModalProps>(
       <FocusTrap>
         <div
           className="absolute bottom-[-100px] z-50"
-          aria-modal={true}
+          role="dialog"
+          aria-labelledby="navigation"
           id="moreNavModal"
         >
+          <h1 id="navigation"></h1>
           <ul
             ref={ref}
             className="text-base bg-black rounded-md left-7 modal-boxShadow min-w-[200px]"
@@ -177,7 +177,10 @@ const MoreNavModal = React.forwardRef<HTMLUListElement, MoreNavModalProps>(
                 key={link.name}
               >
                 <Link href={link.path}>
-                  <a className="flex items-center gap-5 w-full py-3 px-3">
+                  <a
+                    className="flex items-center gap-5 w-full py-3 px-3"
+                    aria-label="internal-link"
+                  >
                     {link.icon}
                     <span>{link.name}</span>
                   </a>
