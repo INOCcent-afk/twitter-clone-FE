@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import type { NextPage } from "next";
 import { MainLayout } from "../../shared-components/MainLayout";
-import { SidebarNavigation } from "../../ui/SidebarNavigation";
-import { TwitterHeader } from "../../ui/headers/TwitterHeader";
 import { HomePageHeader } from "./home-page-header";
 import { Header } from "../../ui/headers/components/Header";
 import { Search } from "../../ui/Search";
@@ -40,12 +38,6 @@ export const HomePage: NextPage = () => {
 
   return (
     <MainLayout
-      leftPanel={
-        <>
-          <TwitterHeader />
-          <SidebarNavigation />
-        </>
-      }
       mainPanel={
         <>
           <HomePageHeader />
@@ -71,6 +63,58 @@ export const HomePage: NextPage = () => {
               <LoadingOutlined />
             </div>
           )}
+          {sortTweets &&
+            sortTweets.map((tweet) => (
+              <Tweet
+                key={tweet.id}
+                text={tweet.attributes.text}
+                id={tweet.attributes.user.data.id}
+                createdAt={tweet.attributes.createdAt}
+                likes={tweet.attributes.likes.data.length}
+                comments={tweet.attributes.comments.data.length}
+                reshare={tweet.attributes.reshare.data.length}
+                author={tweet.attributes.user.data.attributes.username}
+              />
+            ))}
+          {sortTweets &&
+            sortTweets.map((tweet) => (
+              <Tweet
+                key={tweet.id}
+                text={tweet.attributes.text}
+                id={tweet.attributes.user.data.id}
+                createdAt={tweet.attributes.createdAt}
+                likes={tweet.attributes.likes.data.length}
+                comments={tweet.attributes.comments.data.length}
+                reshare={tweet.attributes.reshare.data.length}
+                author={tweet.attributes.user.data.attributes.username}
+              />
+            ))}
+          {sortTweets &&
+            sortTweets.map((tweet) => (
+              <Tweet
+                key={tweet.id}
+                text={tweet.attributes.text}
+                id={tweet.attributes.user.data.id}
+                createdAt={tweet.attributes.createdAt}
+                likes={tweet.attributes.likes.data.length}
+                comments={tweet.attributes.comments.data.length}
+                reshare={tweet.attributes.reshare.data.length}
+                author={tweet.attributes.user.data.attributes.username}
+              />
+            ))}
+          {sortTweets &&
+            sortTweets.map((tweet) => (
+              <Tweet
+                key={tweet.id}
+                text={tweet.attributes.text}
+                id={tweet.attributes.user.data.id}
+                createdAt={tweet.attributes.createdAt}
+                likes={tweet.attributes.likes.data.length}
+                comments={tweet.attributes.comments.data.length}
+                reshare={tweet.attributes.reshare.data.length}
+                author={tweet.attributes.user.data.attributes.username}
+              />
+            ))}
           {sortTweets &&
             sortTweets.map((tweet) => (
               <Tweet

@@ -105,7 +105,7 @@ export const SidebarNavigation = () => {
     <>
       <nav>
         <ul className="ml-[-5px]">
-          <li className="text-2xl my-4 leading-0 lg:hidden">
+          <li className="text-2xl my-1 leading-0 lg:hidden">
             <Link href="/explore">
               <a className="">
                 <span className="flex items-center justify-center gap-5 hover:bg-secondary w-fit px-4 py-2 rounded-3xl ease-out duration-100">

@@ -26,14 +26,14 @@ export const UserMenu: FC = () => {
 
   if (isLoading) {
     return (
-      <div className="w-[50px] h-[50px] absolute bottom-6 rounded-full bg-secondary lg:px-2 lg:py-7 lg:w-full"></div>
+      <div className="w-[50px] h-[50px] rounded-full bg-secondary lg:px-2 lg:py-7 lg:w-full"></div>
     );
   }
 
   return (
     <>
       {data && (
-        <div className="absolute bottom-6 w-full">
+        <div className="w-full">
           <div className="relative">
             <button
               type="button"

@@ -33,11 +33,12 @@ body {
   margin: 0;
   font-family: TwitterChirp, -apple-system, BlinkMacSystemFont, "Segoe UI",
     Roboto, Helvetica, Arial, sans-serif;
-  overflow-x: hidden;
+  background-color: var(--color-black);
 }
 
 body {
   overscroll-behavior-y: none;
+  overflow-x: hidden;
 }
 
 h1,

@@ -45,14 +45,6 @@ export const Tweet: FC<TweetProps> = React.memo(
                         {author}
                       </button>
                     </Link>
-                    <Link href="/" passHref>
-                      <button
-                        role="link"
-                        className="hover:!underline hover:underline-offset-1"
-                      >
-                        @{author}
-                      </button>
-                    </Link>
                     <span role="presentation" className="mb-1">
                       .
                     </span>

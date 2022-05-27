@@ -35,6 +35,8 @@ module.exports = {
       xl: "1280px",
 
       "2xl": "1536px",
+
+      "height-sm": { raw: "(min-height: 800px)" },
     },
   },
   plugins: [],
