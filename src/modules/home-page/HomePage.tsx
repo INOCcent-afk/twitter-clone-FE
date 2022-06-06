@@ -76,58 +76,6 @@ export const HomePage: NextPage = () => {
                 author={tweet.attributes.user.data.attributes.username}
               />
             ))}
-          {sortTweets &&
-            sortTweets.map((tweet) => (
-              <Tweet
-                key={tweet.id}
-                text={tweet.attributes.text}
-                id={tweet.attributes.user.data.id}
-                createdAt={tweet.attributes.createdAt}
-                likes={tweet.attributes.likes.data.length}
-                comments={tweet.attributes.comments.data.length}
-                reshare={tweet.attributes.reshare.data.length}
-                author={tweet.attributes.user.data.attributes.username}
-              />
-            ))}
-          {sortTweets &&
-            sortTweets.map((tweet) => (
-              <Tweet
-                key={tweet.id}
-                text={tweet.attributes.text}
-                id={tweet.attributes.user.data.id}
-                createdAt={tweet.attributes.createdAt}
-                likes={tweet.attributes.likes.data.length}
-                comments={tweet.attributes.comments.data.length}
-                reshare={tweet.attributes.reshare.data.length}
-                author={tweet.attributes.user.data.attributes.username}
-              />
-            ))}
-          {sortTweets &&
-            sortTweets.map((tweet) => (
-              <Tweet
-                key={tweet.id}
-                text={tweet.attributes.text}
-                id={tweet.attributes.user.data.id}
-                createdAt={tweet.attributes.createdAt}
-                likes={tweet.attributes.likes.data.length}
-                comments={tweet.attributes.comments.data.length}
-                reshare={tweet.attributes.reshare.data.length}
-                author={tweet.attributes.user.data.attributes.username}
-              />
-            ))}
-          {sortTweets &&
-            sortTweets.map((tweet) => (
-              <Tweet
-                key={tweet.id}
-                text={tweet.attributes.text}
-                id={tweet.attributes.user.data.id}
-                createdAt={tweet.attributes.createdAt}
-                likes={tweet.attributes.likes.data.length}
-                comments={tweet.attributes.comments.data.length}
-                reshare={tweet.attributes.reshare.data.length}
-                author={tweet.attributes.user.data.attributes.username}
-              />
-            ))}
           {feedsData && !isFeedsDataLoading && !feedsData.data.data.length ? (
             <div className="my-5">
               <NoDataMessage heading={`"No Tweets yet!"`}>
