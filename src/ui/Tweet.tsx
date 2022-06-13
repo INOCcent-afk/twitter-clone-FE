@@ -19,10 +19,11 @@ interface TweetProps {
   comments: number;
   reshare: number;
   author: string;
+  image?: string;
 }
 
 export const Tweet: FC<TweetProps> = React.memo(
-  ({ text, id, createdAt, likes, comments, reshare, author }) => {
+  ({ text, id, image, createdAt, likes, comments, reshare, author }) => {
     const closeClicked = (e: SyntheticEvent) => {
       e.stopPropagation();
       e.preventDefault();
@@ -32,7 +33,7 @@ export const Tweet: FC<TweetProps> = React.memo(
       <Link href="/" passHref>
         <a>
           <article className="flex gap-3 px-3 pt-3 bg-black pb-1 border-b border-b-secondary">
-            <Avatar id={id} username="dave" isLink />
+            <Avatar image={image} username={author} isLink />
             <div className="w-full">
               <div className="flex">
                 <div className="flex items-center justify-between w-full">

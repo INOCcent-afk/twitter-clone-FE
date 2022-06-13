@@ -1,3 +1,4 @@
+import { useMe } from "@/services/react-query/me";
 import {
   AlignLeftOutlined,
   CalendarOutlined,
@@ -10,10 +11,7 @@ import { Button } from "../../ui/ Button";
 import { Avatar } from "../../ui/Avatar";
 import { SvgHover } from "../../ui/SvgHover";
 
-interface FormFeedProps extends ComponentPropsWithoutRef<"textarea"> {
-  userID?: number;
-  username: string;
-}
+interface FormFeedProps extends ComponentPropsWithoutRef<"textarea"> {}
 
 const Controls = [
   {
@@ -60,12 +58,24 @@ const Controls = [
   },
 ];
 
-const FormFeed: FC<FormFeedProps> = ({ userID, username, ...props }) => {
+const FormFeed: FC<FormFeedProps> = ({ ...props }) => {
+  const { data: meData } = useMe();
+
   return (
     <>
       <section className="flex px-5 gap-4 pb-2 mt-1">
         <div>
-          <Avatar id={userID} username={username} isLink />
+          {meData ? (
+            <button>
+              <Avatar
+                username={meData?.data.username}
+                image={meData.data.image.url}
+                isLink
+              />
+            </button>
+          ) : (
+            <Avatar username="" />
+          )}
         </div>
         <form className="w-full ">
           <textarea

@@ -12,6 +12,8 @@ import { useTweetFeeds } from "@/services/react-query/feed";
 import { LoadingOutlined } from "@ant-design/icons";
 import { Tweet } from "@/ui/Tweet";
 import { NoDataMessage } from "@/ui/NoDataMessage";
+import { useQueries } from "react-query";
+import { getUser } from "@/services/resources/user";
 
 export const HomePage: NextPage = () => {
   const [search, setSearch] = useState("");
@@ -36,6 +38,19 @@ export const HomePage: NextPage = () => {
       return d.getTime() - c.getTime();
     });
 
+  const userQueries = useQueries(
+    feedsData?.data.data.map((user) => {
+      return {
+        queryKey: ["user", user.attributes.user.data.id],
+        queryFn: () => getUser(user.attributes.user.data.id),
+      };
+    }) ?? []
+  );
+
+  let tweetsCombinedData =
+    sortTweets &&
+    sortTweets.map((item, i) => Object.assign({}, item, userQueries[i]));
+
   return (
     <MainLayout
       mainPanel={
@@ -46,14 +61,11 @@ export const HomePage: NextPage = () => {
               <FormFeed
                 value={textarea}
                 onChange={(e) => setTextArea(e.currentTarget.value)}
-                userID={meData.data.id}
-                username={meData?.data.username}
               />
             ) : (
               <FormFeed
                 value={textarea}
                 onChange={(e) => setTextArea(e.currentTarget.value)}
-                username=""
               />
             )}
           </div>
@@ -63,19 +75,26 @@ export const HomePage: NextPage = () => {
               <LoadingOutlined />
             </div>
           )}
-          {sortTweets &&
-            sortTweets.map((tweet) => (
-              <Tweet
-                key={tweet.id}
-                text={tweet.attributes.text}
-                id={tweet.attributes.user.data.id}
-                createdAt={tweet.attributes.createdAt}
-                likes={tweet.attributes.likes.data.length}
-                comments={tweet.attributes.comments.data.length}
-                reshare={tweet.attributes.reshare.data.length}
-                author={tweet.attributes.user.data.attributes.username}
-              />
-            ))}
+          {tweetsCombinedData &&
+            tweetsCombinedData.map((tweet) => {
+              return (
+                <Tweet
+                  key={tweet.id}
+                  text={tweet.attributes.text}
+                  id={tweet.attributes.user.data.id}
+                  createdAt={tweet.attributes.createdAt}
+                  likes={tweet.attributes.likes.data.length}
+                  comments={tweet.attributes.comments.data.length}
+                  reshare={tweet.attributes.reshare.data.length}
+                  author={tweet.attributes.user.data.attributes.username}
+                  image={
+                    tweet.data &&
+                    tweet.data.data.image &&
+                    tweet.data.data.image.url
+                  }
+                />
+              );
+            })}
           {feedsData && !isFeedsDataLoading && !feedsData.data.data.length ? (
             <div className="my-5">
               <NoDataMessage heading={`"No Tweets yet!"`}>

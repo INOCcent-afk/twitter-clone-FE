@@ -45,7 +45,7 @@ export const UserMenu: FC = () => {
               <div className="flex gap-3">
                 <Avatar
                   username={data?.data.username}
-                  id={data?.data.id}
+                  image={data.data.image.url}
                   size={50}
                 />
                 <div className="hidden lg:flex flex-col">
@@ -71,7 +71,7 @@ export const UserMenu: FC = () => {
                       <div className="flex gap-3">
                         <Avatar
                           username={data?.data.username as string}
-                          id={data?.data.id}
+                          image={data.data.image.url}
                           size={50}
                         />
                         <div className="flex flex-col">

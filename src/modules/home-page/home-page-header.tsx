@@ -43,6 +43,7 @@ export const HomePageHeader = () => {
                       setIsSidebarOpen(true);
                       document.body.style.overflow = "hidden";
                     }}
+                    image={meData.data.image.url}
                   />
                 </button>
               ) : (
@@ -87,7 +88,7 @@ export const HomePageHeader = () => {
                   {meData ? (
                     <Avatar
                       username={meData?.data.username}
-                      id={meData?.data.id}
+                      image={meData.data.image.url}
                       size={40}
                       isLink
                     />
