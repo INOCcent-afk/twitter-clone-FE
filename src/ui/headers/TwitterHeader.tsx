@@ -7,7 +7,7 @@ export const TwitterHeader: FC = () => {
   return (
     <div className="py-2">
       <Link href="/">
-        <a className="inline-block group">
+        <a className="inline-block group focus-visible:outline-none">
           <SvgHover
             name="home"
             hoverColor="secondary"

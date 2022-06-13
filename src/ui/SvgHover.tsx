@@ -33,7 +33,9 @@ export const SvgHover: FC<SvgHoverProps> = ({
       <span className="sr-only" data-testid="svg-aria">
         {name}
       </span>
-      {children}
+      <div className="leading-[0px] group-focus-visible:outline outline-1 outline-offset-2 outline-white">
+        {children}
+      </div>
       {tooltip && <ToolTip position={toolTipPosition}>{name}</ToolTip>}
     </div>
   );

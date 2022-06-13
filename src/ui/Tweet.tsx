@@ -54,7 +54,7 @@ export const Tweet: FC<TweetProps> = React.memo(
                   </div>
                   <button
                     onClick={closeClicked}
-                    className="group relative text-graySecondary flex items-center"
+                    className="group relative text-graySecondary flex items-center focus-visible:outline-none"
                   >
                     <SvgHover hoverColor="primary" name="More">
                       <MoreOutlined
@@ -72,7 +72,7 @@ export const Tweet: FC<TweetProps> = React.memo(
                 <button
                   onClick={closeClicked}
                   role="link"
-                  className="group relative text-graySecondary flex items-center"
+                  className="group relative text-graySecondary flex items-center focus-visible:outline-none"
                 >
                   <SvgHover hoverColor="primary" name="comments">
                     <CommentOutlined
@@ -87,7 +87,7 @@ export const Tweet: FC<TweetProps> = React.memo(
                 <button
                   onClick={closeClicked}
                   role="link"
-                  className="group relative text-graySecondary flex items-center"
+                  className="group relative text-graySecondary flex items-center focus-visible:outline-none"
                 >
                   <SvgHover hoverColor="green" name="comments">
                     <RetweetOutlined
@@ -102,7 +102,7 @@ export const Tweet: FC<TweetProps> = React.memo(
                 <button
                   onClick={closeClicked}
                   role="link"
-                  className="group relative text-graySecondary flex items-center"
+                  className="group relative text-graySecondary flex items-center focus-visible:outline-none"
                 >
                   <SvgHover hoverColor="red" name="comments">
                     <HeartOutlined
@@ -117,7 +117,7 @@ export const Tweet: FC<TweetProps> = React.memo(
                 <button
                   role="link"
                   onClick={closeClicked}
-                  className="relative group"
+                  className="relative group focus-visible:outline-none"
                 >
                   <SvgHover hoverColor="primary" name="comments">
                     <ShareAltOutlined

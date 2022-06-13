@@ -76,7 +76,10 @@ const FormFeed: FC<FormFeedProps> = ({ userID, username, ...props }) => {
           <div className="flex items-center justify-between">
             <div className="flex items-center">
               {Controls.map((control, index) => (
-                <button key={index} className="group">
+                <button
+                  key={index}
+                  className="group focus-visible:outline-none"
+                >
                   <SvgHover
                     hoverColor="secondary"
                     name={control.name}

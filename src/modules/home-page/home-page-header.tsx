@@ -51,7 +51,7 @@ export const HomePageHeader = () => {
             </div>
             <h2>Latests Tweets</h2>
           </div>
-          <button className="group">
+          <button className="group focus-visible:outline-none">
             <SvgHover name="Latest tweets" hoverColor="secondary" tooltip>
               <ThunderboltOutlined
                 className="text-2xl leading-[0px]"
