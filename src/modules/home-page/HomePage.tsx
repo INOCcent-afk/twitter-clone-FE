@@ -81,7 +81,6 @@ export const HomePage: NextPage = () => {
                 <Tweet
                   key={tweet.id}
                   text={tweet.attributes.text}
-                  id={tweet.attributes.user.data.id}
                   createdAt={tweet.attributes.createdAt}
                   likes={tweet.attributes.likes.data.length}
                   comments={tweet.attributes.comments.data.length}

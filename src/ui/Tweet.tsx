@@ -12,7 +12,6 @@ import { SvgHover } from "./SvgHover";
 import Moment from "react-moment";
 
 interface TweetProps {
-  id: number;
   text: string;
   createdAt: string;
   likes: number;
@@ -23,7 +22,7 @@ interface TweetProps {
 }
 
 export const Tweet: FC<TweetProps> = React.memo(
-  ({ text, id, image, createdAt, likes, comments, reshare, author }) => {
+  ({ text, image, createdAt, likes, comments, reshare, author }) => {
     const closeClicked = (e: SyntheticEvent) => {
       e.stopPropagation();
       e.preventDefault();

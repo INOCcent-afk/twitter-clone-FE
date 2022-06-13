@@ -9,7 +9,6 @@ export const Tweet = () => (
   <div className="w-full bg-black max-w-[600px]">
     <TweetComponent
       text="My First Tweet!"
-      id={3}
       createdAt="2022-04-02T16:56:59.867Z"
       likes={3}
       comments={0}
