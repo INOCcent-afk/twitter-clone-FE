@@ -80,11 +80,10 @@ export const HomePage: NextPage = () => {
               return (
                 <Tweet
                   key={tweet.id}
+                  id={tweet.id}
                   text={tweet.attributes.text}
                   createdAt={tweet.attributes.createdAt}
-                  likes={tweet.attributes.likes.data.length}
                   comments={tweet.attributes.comments.data.length}
-                  reshare={tweet.attributes.reshare.data.length}
                   author={tweet.attributes.user.data.attributes.username}
                   image={
                     tweet.data &&

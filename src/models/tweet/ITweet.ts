@@ -9,7 +9,7 @@ export interface IFeed {
 }
 
 export interface IFullFeed {
-  id: number;
+  id: string;
 
   attributes: {
     createdAt: string;
@@ -25,12 +25,6 @@ export interface IFullFeed {
       };
     };
     comments: {
-      data: [];
-    };
-    reshare: {
-      data: [];
-    };
-    likes: {
       data: [];
     };
   };

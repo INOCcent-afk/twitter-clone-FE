@@ -10,7 +10,7 @@ const queryClient = new QueryClient();
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <QueryClientProvider client={queryClient}>
-      <ReactQueryDevtools initialIsOpen={true} />
+      <ReactQueryDevtools initialIsOpen={false} />
       <ToastContainer theme="dark" />
       <div className="bg-black text-white">
         <Component {...pageProps} />

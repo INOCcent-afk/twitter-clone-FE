@@ -1,5 +1,6 @@
 import {
   CommentOutlined,
+  HeartFilled,
   HeartOutlined,
   MoreOutlined,
   RetweetOutlined,
@@ -12,17 +13,16 @@ import { SvgHover } from "./SvgHover";
 import Moment from "react-moment";
 
 interface TweetProps {
+  id: string;
   text: string;
   createdAt: string;
-  likes: number;
   comments: number;
-  reshare: number;
   author: string;
   image?: string;
 }
 
 export const Tweet: FC<TweetProps> = React.memo(
-  ({ text, image, createdAt, likes, comments, reshare, author }) => {
+  ({ text, image, createdAt, comments, author, id }) => {
     const closeClicked = (e: SyntheticEvent) => {
       e.stopPropagation();
       e.preventDefault();
@@ -96,7 +96,7 @@ export const Tweet: FC<TweetProps> = React.memo(
                     />
                   </SvgHover>
                   <span className="inline-block text-xs group-hover:text-green duration-300 ml-2">
-                    {reshare}
+                    0
                   </span>
                 </button>
                 <button
@@ -105,13 +105,21 @@ export const Tweet: FC<TweetProps> = React.memo(
                   className="group relative text-graySecondary flex items-center focus-visible:outline-none"
                 >
                   <SvgHover hoverColor="red" name="comments">
-                    <HeartOutlined
-                      className="group-hover:text-red duration-300"
-                      aria-hidden
-                    />
+                    {true ? (
+                      <HeartFilled className="text-red" aria-hidden />
+                    ) : (
+                      <HeartOutlined
+                        className="group-hover:text-red duration-300"
+                        aria-hidden
+                      />
+                    )}
                   </SvgHover>
-                  <span className="inline-block text-xs group-hover:text-red duration-300 ml-3">
-                    {likes}
+                  <span
+                    className={`inline-block text-xs group-hover:text-red duration-300 ml-3 ${
+                      true ? "text-red" : ""
+                    }`}
+                  >
+                    0
                   </span>
                 </button>
                 <button
